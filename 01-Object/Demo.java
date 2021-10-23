@@ -6,6 +6,7 @@ public class Demo{
     double joe = Math.pow(xcord, 2) + Math.pow(ycord, 2);
     return Math.sqrt(joe);
   }
+  
   public static void main(String[]args){
     Point P1 = new Point(1,1);
     Point P2 = new Point(2,2);
