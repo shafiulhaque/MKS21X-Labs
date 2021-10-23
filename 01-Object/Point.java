@@ -17,4 +17,10 @@ public class Point{
   public double getY(){
     return y;
   }
+  public double distanceTo(Point other){
+    double xcord = x - other.getX();
+    double ycord = y - other.getY();
+    double joe = Math.pow(xcord, 2) + Math.pow(ycord, 2);
+    return Math.sqrt(joe);
+  }
 }
