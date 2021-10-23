@@ -26,7 +26,7 @@ public class Point{
   // One accessor (static) method:
   public static double distance(Point start, Point end){
     double xcord = end.getX() - start.getX();
-    double ycord = end.getX() - start.getX();
+    double ycord = end.getY() - start.getY();
     double joe = Math.pow(xcord, 2) + Math.pow(ycord, 2);
     return Math.sqrt(joe);
   }
