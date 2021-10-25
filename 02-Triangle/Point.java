@@ -30,6 +30,7 @@ public class Point{
     double joe = Math.pow(xcord, 2) + Math.pow(ycord, 2);
     return Math.sqrt(joe);
   }
+  // To string method
   public String toString(){
     return "{" + x + ", " + y + "}";
   }

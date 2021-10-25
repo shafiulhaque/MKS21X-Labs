@@ -13,6 +13,13 @@ public class Triangle{
     v3 = new Point(e, f);
   }
   // Four accessor (non-static) methods:
+  public double getPerimeter(){
+    double l1 = Point.distance(v1, v2);
+    double l2 = Point.distance(v2, v3);
+    double l3 = Point.distance(v3, v1);
+    double total = l1 + l2 + l3;
+    return total;
+  }
   public Point getVertex(int num){
     if (num == 1) return v1;
     if (num == 2){
@@ -21,4 +28,13 @@ public class Triangle{
       return v3;
     }
   }
+  public void setVertex(int num, Point a){
+    if (num == 1) v1 = a;
+    if (num == 2){
+      v2 = a;
+    } else {
+      v3 = a;
+    }
+  }
+
 }
