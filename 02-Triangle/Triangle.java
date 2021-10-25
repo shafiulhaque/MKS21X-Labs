@@ -13,4 +13,12 @@ public class Triangle{
     v3 = new Point(e, f);
   }
   // Four accessor (non-static) methods:
+  public Point getVertex(int num){
+    if (num == 1) return v1;
+    if (num == 2){
+      return v2;
+    } else {
+      return v3;
+    }
+  }
 }
