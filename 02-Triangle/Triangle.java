@@ -42,16 +42,4 @@ public class Triangle{
   public String toString(){
     return "{" + v1 + ", " + v2 + ", " + v3 + "}";
   }
-  //Main function
-  public static void main(String[] args) {
-    Triangle joe = new Triangle(new Point(1, 2), new Point(3, 4), new Point(1, 6));
-    System.out.println("First Test Case: Regular Triangle");
-    System.out.println(joe);
-    System.out.println(joe.getPerimeter());
-    System.out.println(joe.getVertex(2));
-    System.out.println(joe.getVertex(3));
-    joe.setVertex(1, new Point(0, 0));
-    System.out.println(joe);
-    System.out.println(joe.getPerimeter());
-  }
 }
