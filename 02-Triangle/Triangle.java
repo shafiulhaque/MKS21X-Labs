@@ -12,7 +12,7 @@ public class Triangle{
     v2 = new Point(c, d);
     v3 = new Point(e, f);
   }
-  // Four accessor (non-static) methods:
+  // Three accessor (non-static) methods:
   public double getPerimeter(){
     double l1 = Point.distance(v1, v2);
     double l2 = Point.distance(v2, v3);
@@ -21,20 +21,37 @@ public class Triangle{
     return total;
   }
   public Point getVertex(int num){
-    if (num == 1) return v1;
-    if (num == 2){
+    if (num == 1){
+      return v1;
+    } else if (num == 2){
       return v2;
     } else {
       return v3;
     }
   }
   public void setVertex(int num, Point a){
-    if (num == 1) v1 = a;
-    if (num == 2){
+    if (num == 1){
+      v1 = a;
+    } else if (num == 2){
       v2 = a;
     } else {
       v3 = a;
     }
   }
-
+  // To string method
+  public String toString(){
+    return "{" + v1 + ", " + v2 + ", " + v3 + "}";
+  }
+  //Main function
+  public static void main(String[] args) {
+    Triangle joe = new Triangle(new Point(1, 2), new Point(3, 4), new Point(1, 6));
+    System.out.println("First Test Case: Regular Triangle");
+    System.out.println(joe);
+    System.out.println(joe.getPerimeter());
+    System.out.println(joe.getVertex(2));
+    System.out.println(joe.getVertex(3));
+    joe.setVertex(1, new Point(0, 0));
+    System.out.println(joe);
+    System.out.println(joe.getPerimeter());
+  }
 }
