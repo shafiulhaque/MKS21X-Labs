@@ -50,6 +50,9 @@ public class Triangle{
   /*Return true when the Points of the triangles are all equal() to the corresponding points of the other Triangle.
   */
   public boolean equals(Triangle other){
+    if (other == null){
+      return false;
+    }
     return (v1.equals(other.getVertex(1)) && v2.equals(other.getVertex(2)) && v3.equals(other.getVertex(3)));
   }
   /*Return "scalene", "isosceles", or "equilateral"

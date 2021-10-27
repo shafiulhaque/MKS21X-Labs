@@ -52,6 +52,9 @@ public class Point{
   *To avoid issues: If one is 0.0, the other must be exactly 0.0.
   */
   public boolean equals(Point other){
+    if (other == null){
+      return false;
+    }
     return (closeEnough(x, other.getX()) && closeEnough(y, other.getY()));
   }
 }
