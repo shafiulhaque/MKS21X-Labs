@@ -38,6 +38,18 @@ public class Triangle{
       v3 = a;
     }
   }
+  public boolean equals(Triangle other){
+    
+    if (other.getX() == 0.0 && other.getY() != 0.0 || other.getY() == 0.0 && other.getX() != 0.0){
+      return false;
+    }
+    return closeEnough(other.getX(), other.getY());
+  }
+  // One accessor static method:
+  public static boolean closeEnough(double a, double b){
+    double joe = (a - b)/a;
+    return (joe < 0.001);
+  }
   // To string method
   public String toString(){
     return "{" + v1 + ", " + v2 + ", " + v3 + "}";
