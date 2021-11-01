@@ -9,6 +9,12 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber(int nume, int deno){
     super(0.0);//this value is ignored!
+    numerator = nume;
+    denominator = deno;
+    if (deno == 0){
+      numerator = 0;
+      denominator = 1;
+    }
   }
 
   public double getValue(){
@@ -19,26 +25,27 @@ public class RationalNumber extends RealNumber
   *@return the numerator
   */
   public int getNumerator(){
-    return 0;
+    return numerator;
   }
   /**
   *@return the denominator
   */
   public int getDenominator(){
-    return 0;
+    return denominator;
   }
   /**
   *@return a new RationalNumber that has the same numerator
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return null;
+    RationalNumber joemama = new RationalNumber(denominator, numerator);
+    return joemama;
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return false;
+    return (other.getNumerator() == numerator && other.getDenominator() == denominator);
   }
 
 
@@ -46,7 +53,7 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
-    return "0";
+    return "" + numerator + "/" + denominator;
   }
 
   /**Calculate the GCD of two integers.
@@ -55,9 +62,24 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
+    int c = -1;
+    int low = 0;
+    int high = 0;
+    if (a > b){
+      high = a;
+      low = b;
+    } else{
+      high = b;
+      low = a;
+    }
+    while (c != 0){
+      c = high%low;
+      high = low;
+      low = c;
+    }
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    return high;
   }
 
   /**
@@ -95,4 +117,4 @@ public class RationalNumber extends RealNumber
   public RationalNumber subtract(RationalNumber other){
     return null;
   }
-} 
+}
