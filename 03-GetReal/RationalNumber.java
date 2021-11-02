@@ -38,6 +38,10 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
+    if (denominator == 0){
+      numerator = 1;
+      denominator = 0;
+    }
     RationalNumber joemama = new RationalNumber(denominator, numerator);
     return joemama;
   }
@@ -45,6 +49,8 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
+    other.reduce();
+    reduce();
     return (other.getNumerator() == this.numerator && other.getDenominator() == this.denominator);
   }
 
@@ -106,19 +112,25 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    RationalNumber joe = new RationalNumber(other.getNumerator()*this.denominator, other.getDenominator()*this.numerator);
+    joe.reduce();
+    return joe;
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    RationalNumber joe = new RationalNumber(other.getNumerator()*this.denominator + other.getDenominator()*this.numerator, other.getDenominator()*this.denominator);
+    joe.reduce();
+    return joe;
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
+    RationalNumber joe = new RationalNumber(other.getNumerator()*this.denominator - other.getDenominator()*this.numerator, other.getDenominator()*this.denominator);
+    joe.reduce();
     return null;
   }
 }
