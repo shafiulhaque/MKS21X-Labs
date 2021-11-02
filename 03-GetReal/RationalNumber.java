@@ -8,7 +8,7 @@ public class RationalNumber extends RealNumber
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(nume);//this value is ignored!
+    super(0.0);//this value is ignored!
     if (deno == 0){
       numerator = 0;
       denominator = 1;
@@ -94,7 +94,13 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-    int gcd = gcd(numerator, denominator);
+    int excep = 0;
+    if (numerator == 0){
+      excep = 1;
+    } else {
+      excep = numerator;
+    }
+    int gcd = gcd(excep, denominator);
     numerator = numerator/gcd;
     denominator = denominator/gcd;
   }
@@ -131,6 +137,6 @@ public class RationalNumber extends RealNumber
   public RationalNumber subtract(RationalNumber other){
     RationalNumber joe = new RationalNumber(other.getNumerator()*this.denominator - other.getDenominator()*this.numerator, other.getDenominator()*this.denominator);
     joe.reduce();
-    return null;
+    return joe;
   }
 }
