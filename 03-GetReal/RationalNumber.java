@@ -49,8 +49,8 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    other.reduce();
-    reduce();
+    //other.reduce();
+    //reduce();
     return (other.getNumerator() == this.numerator && other.getDenominator() == this.denominator);
   }
 
@@ -103,6 +103,10 @@ public class RationalNumber extends RealNumber
     int gcd = gcd(excep, denominator);
     numerator = numerator/gcd;
     denominator = denominator/gcd;
+    if (denominator < 0){
+      denominator = Math.abs(denominator);
+      numerator *= -1;
+    }
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
@@ -135,7 +139,7 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    RationalNumber joe = new RationalNumber(other.getNumerator()*this.denominator - other.getDenominator()*this.numerator, other.getDenominator()*this.denominator);
+    RationalNumber joe = new RationalNumber(other.getDenominator()*this.numerator - other.getNumerator()*this.denominator , other.getDenominator()*this.denominator);
     joe.reduce();
     return joe;
   }
