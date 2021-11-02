@@ -18,6 +18,8 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
+    if (numerator == 0) return 0.0;
+    if (denominator == 0) return numerator;
     return (0.0 + numerator)/(0.0 + denominator);
   }
 
@@ -38,9 +40,8 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    if (denominator == 0){
-      numerator = 1;
-      denominator = 0;
+    if (numerator == 0){
+      return this;
     }
     RationalNumber joemama = new RationalNumber(denominator, numerator);
     return joemama;
@@ -100,6 +101,7 @@ public class RationalNumber extends RealNumber
     } else {
       excep = numerator;
     }
+    if (denominator == 0) denominator = 1;
     int gcd = gcd(excep, denominator);
     numerator = numerator/gcd;
     denominator = denominator/gcd;
@@ -122,7 +124,7 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    RationalNumber joe = new RationalNumber(other.getNumerator()*this.denominator, other.getDenominator()*this.numerator);
+    RationalNumber joe = new RationalNumber(other.getDenominator()*this.numerator, other.getNumerator()*this.denominator);
     joe.reduce();
     return joe;
   }
