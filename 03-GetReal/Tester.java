@@ -27,7 +27,7 @@ public class Tester{
     System.out.println(t3.add(t4));
     System.out.println(t3.subtract(t4));
     t3 = new RationalNumber(20, 4);
-    RationalNumber t5 = new RationalNumber(21, 4);
+    RationalNumber t5 = new RationalNumber(16, 9);
     System.out.println("---------------------");
     System.out.println(t3.getValue());
     System.out.println(t5.getValue());
