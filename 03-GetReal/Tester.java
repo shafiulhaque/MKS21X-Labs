@@ -26,6 +26,8 @@ public class Tester{
     System.out.println(t3.divide(t4));
     System.out.println(t3.add(t4));
     System.out.println(t3.subtract(t4));
+    System.out.println("---------------------");
+    System.out.println(t3.compareTo(t4));
     t3 = new RationalNumber(20, 4);
     RationalNumber t5 = new RationalNumber(16, 9);
     System.out.println("---------------------");
