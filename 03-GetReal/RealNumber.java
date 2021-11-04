@@ -39,7 +39,7 @@ public class RealNumber{
 
   public int compareTo(RealNumber other){
     double joe = getValue() - other.getValue();
-    if (joe >= 1) return 2;
+    if (joe >= 1) return 1;
     if (joe > 0 && joe < 1) return 1;
     if (joe == 0) return 0;
     return -1;
