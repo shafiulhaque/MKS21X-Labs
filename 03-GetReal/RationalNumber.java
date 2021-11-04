@@ -19,7 +19,6 @@ public class RationalNumber extends RealNumber
 
   public double getValue(){
     if (numerator == 0) return 0.0;
-    if (denominator == 0) return numerator;
     return (double)numerator/(double)denominator;
   }
 
@@ -40,9 +39,6 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    if (numerator == 0){
-      return this;
-    }
     RationalNumber joemama = new RationalNumber(denominator, numerator);
     return joemama;
   }
