@@ -48,7 +48,7 @@ public class RationalNumber extends RealNumber
   public boolean equals(RationalNumber other){
     //other.reduce();
     //reduce();
-    return (other.getNumerator() == this.numerator && other.getDenominator() == this.denominator);
+    return (other.getNumerator() == getNumerator() && other.getDenominator() == getNumerator());
   }
 
 
@@ -66,23 +66,14 @@ public class RationalNumber extends RealNumber
   */
   private static int gcd(int a, int b){
     int c = -1;
-    int low = 0;
-    int high = 0;
-    if (a > b){
-      high = a;
-      low = b;
-    } else{
-      high = b;
-      low = a;
-    }
-    while (c != 0){
-      c = high%low;
-      high = low;
-      low = c;
+    while (b != 0){
+      c = a%b;
+      a = b;
+      b = c;
     }
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return high;
+    return a;
   }
 
   /**
@@ -91,18 +82,11 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-    int excep = 0;
-    if (numerator == 0){
-      excep = 1;
-    } else {
-      excep = numerator;
-    }
-    if (denominator == 0) denominator = 1;
-    int gcd = gcd(excep, denominator);
+    int gcd = gcd(numerator, denominator);
     numerator = numerator/gcd;
     denominator = denominator/gcd;
-    if (denominator < 0){
-      denominator = Math.abs(denominator);
+    if (denominator < 0){                      // makes it look better
+      denominator *= -1;
       numerator *= -1;
     }
   }
