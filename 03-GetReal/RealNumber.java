@@ -46,7 +46,8 @@ public class RealNumber{
   }
 
   public boolean equals(RealNumber other){
-    return (other.getValue() == getValue());
+    int joe = compareTo(other);
+    return (joe == 0);
   }
 
 
