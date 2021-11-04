@@ -83,5 +83,16 @@ public class Tester{
     System.out.println(t5.add(t6));
     System.out.println(t5.subtract(t6));
     System.out.println(t5.compareTo(t6));
+    System.out.println("---------------------");
+    System.out.println();
+    System.out.println("TEST CASES FOR RATIONAL NUMBER (Using Math.random):");
+		for (int i = 0; i < 15; i++) {
+      RealNumber joe = new RealNumber((int)((Math.random() * (17 - 5 + 1)) + 5)); //integers from 5-17
+      RealNumber joe2 = new RealNumber((int)((Math.random() * (12 - 5 + 1)) + 5)); //integers from 5-12 (purposely to get more +1 for compareTo)
+      System.out.println("Value A: " + joe.getValue() + ", Value B: " + joe2.getValue());
+      System.out.println("Adding: " + joe.add(joe2));
+      System.out.println("Subtracting: " + joe.subtract(joe2));
+		  System.out.println(joe.compareTo(joe2));
+		}
   }
 }
