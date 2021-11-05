@@ -37,13 +37,13 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
-    String x = data[index];
-    if (x == null){
+    if (data[index] == null){
       System.out.println("Error: index is null");
+      return data[index];
     } else {
       data[index] = element;
+      return data[index];
     }
-    return x;
   }
 
   // mutator methods
