@@ -33,9 +33,11 @@ public class SuperArray{
   }
 
   // mutator methods
-  public void addString(String joe){
+  public void add(String joe){
     data[size] = joe;
     size++;
   }
+
+
 
 }
