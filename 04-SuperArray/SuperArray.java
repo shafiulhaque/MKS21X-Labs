@@ -37,7 +37,10 @@ public class SuperArray{
     data[size] = joe;
     size++;
   }
-
-
+  public void remove(int joe){
+    for (int i = joe; i < data.length - 1; i++){
+      data[i] = data[i+1];
+    }
+  }
 
 }

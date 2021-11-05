@@ -7,5 +7,7 @@ public class Tester{
     joe.add("four");
     joe.add("five");
     System.out.println(joe);
+    joe.remove(2);
+    System.out.println(joe);
   }
 }
