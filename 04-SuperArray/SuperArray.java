@@ -45,9 +45,16 @@ public class SuperArray{
     return null;
   }
 
+  // mutator methods
+  public boolean add(String joe){
+    data[size] = joe;
+    size++;
+    return true;
+  }
+
   public String set(int index, String element){
-    String x = data[index];
     if (index > -1 && index < size){
+      String x = data[index];
       data[index] = element;
       return x;
     }
@@ -55,12 +62,6 @@ public class SuperArray{
     return null;
   }
 
-  // mutator methods
-  public boolean add(String joe){
-    data[size] = joe;
-    size++;
-    return true;
-  }
   public void remove(int joe){
     for (int i = joe; i < data.length - 1; i++){
       data[i] = data[i+1];
