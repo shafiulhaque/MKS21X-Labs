@@ -19,6 +19,16 @@ public class SuperArray{
     return size;
   }
 
+  private void resize(){
+    if (size == data.length){
+    String[] data2 = new String[size*2 + 1];
+    for(int i = 0; i < size; i++){
+      data2[i] = data[i];
+    }
+    data = data2;
+  }
+  }
+
   public String toString(){
     String joe = "[";
     for (int i = 0; i < size; i++){
@@ -47,6 +57,7 @@ public class SuperArray{
 
   // mutator methods
   public boolean add(String joe){
+    resize();
     data[size] = joe;
     size++;
     return true;
