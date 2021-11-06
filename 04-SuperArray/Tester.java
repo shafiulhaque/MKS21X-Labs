@@ -32,11 +32,12 @@ public class Tester{
     System.out.println();
 
     System.out.println("Phase Two Test Cases: Remove");
-    for(int i = 0; i < joe.size(); i++){
+    for(int i = 0; i < joe.size() - 1; i++){
       joe.set(i, joe.get(i+1));
-      joe.set(i-1, "NOPE!");
       System.out.println(joe);
     }
+    joe.set(joe.size()-1, "NOPE!");
+    System.out.println(joe);
 
     SuperArray ok = new SuperArray();
 
