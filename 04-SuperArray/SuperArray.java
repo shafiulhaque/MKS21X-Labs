@@ -9,6 +9,11 @@ public class SuperArray{
     size = 0;
   }
 
+  public SuperArray(int initialCapacity){
+    data = new String[initialCapacity];
+    size = 0;
+  }
+
   // accessor methods
   public int size(){
     return size;
@@ -39,11 +44,10 @@ public class SuperArray{
   public String set(int index, String element){
     if (data[index] == null){
       System.out.println("Error: index is null");
-      return data[index];
     } else {
       data[index] = element;
-      return data[index];
     }
+    return data[index];
   }
 
   // mutator methods

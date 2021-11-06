@@ -11,7 +11,6 @@ public class Tester{
     System.out.println(joe.add("seven"));
     System.out.println(joe.add("eight"));
     System.out.println(joe.add("nine"));
-    System.out.println(joe.add("ten"));
     System.out.println(joe);
     System.out.println(joe.toStringDebug());
     System.out.println(joe.get(8));
@@ -27,6 +26,8 @@ public class Tester{
       joe.set(i-1, "NOPE!");
       System.out.println(joe);
     }
+
+    SuperArray ok = new SuperArray();
 
   }
 }
