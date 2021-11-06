@@ -73,11 +73,18 @@ public class SuperArray{
     return null;
   }
 
-  public void remove(int joe){
-    for (int i = joe; i < data.length - 1; i++){
-      data[i] = data[i+1];
+  public String remove(int index){
+    if (index > -1 && index < size){
+      String removed = data[index];
+      for (int i = index; i < data.length - 1; i++){
+        data[i] = data[i+1];
+      }
+      set(data.length-1, null);
+      size--;
+      return removed;
     }
-    size--;
+    System.out.println("Error: index is out of bounds");
+    return null;
   }
 
 }
