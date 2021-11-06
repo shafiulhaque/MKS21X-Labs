@@ -16,6 +16,7 @@ public class Tester{
     System.out.println(joe.get(8));
     System.out.println();
 
+
     System.out.println("Phase Two Test Cases: Get");
     for(int i = 0; i < joe.size(); i++){
       System.out.println(joe.get(i));
@@ -38,8 +39,14 @@ public class Tester{
     }
     joe.set(joe.size()-1, "NOPE!");
     System.out.println(joe);
+    System.out.println();
 
-    SuperArray ok = new SuperArray();
 
+    System.out.println("Phase Three Test Cases");
+    SuperArray yessir = new SuperArray(4);
+    for(int i = 0; i < 20; i++){
+      System.out.println(yessir.add("da"));
+    }
+    System.out.println(yessir);
   }
 }
