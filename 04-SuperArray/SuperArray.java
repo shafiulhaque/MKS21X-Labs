@@ -46,12 +46,13 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
-    if (data[index] == null){
-      System.out.println("Error: index is null");
-    } else {
+    String x = data[index];
+    if (index > -1 && index < size){
       data[index] = element;
+      return x;
     }
-    return data[index];
+    System.out.println("Error: index is out of bounds");
+    return null;
   }
 
   // mutator methods
