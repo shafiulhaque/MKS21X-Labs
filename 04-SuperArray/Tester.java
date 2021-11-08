@@ -78,7 +78,7 @@ public class Tester{
     System.out.println(yessir.toStringDebug());
     System.out.println();
 
-    SuperArray joemama2 = new SuperArray(10);
+    SuperArray joemama2 = new SuperArray(11);
     numOfItems = 10;
     for (int i = 0; i < numOfItems; i++){
       String n = "" + i;
@@ -89,6 +89,9 @@ public class Tester{
     System.out.println(joemama2);
     System.out.println(joemama2.indexOf("1"));
     System.out.println(joemama2.lastIndexOf("1"));
+    System.out.println(joemama2.size());
+    joemama2.add(2, "joe");
+    System.out.println(joemama2);
 
   }
 }

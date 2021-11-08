@@ -73,20 +73,6 @@ public class SuperArray{
     return null;
   }
 
-  public String remove(int index){
-    if (index > -1 && index < size){
-      String removed = data[index];
-      for (int i = index; i < data.length - 1; i++){
-        data[i] = data[i+1];
-      }
-      set(data.length-1, null);
-      size--;
-      return removed;
-    }
-    System.out.println("Error: index is out of bounds");
-    return null;
-  }
-
   // other accessor methods
 
   public int indexOf(String target){
@@ -105,6 +91,45 @@ public class SuperArray{
       }
     }
     return -1;
+  }
+
+  // other mutator methods
+
+  public void add(int index, String value){
+    if (index > -1 && index < size){
+      String adding = "";
+      size++;
+      for (int i = index; i < data.length; i++){
+        adding = data[i];
+        data[i] = value;
+        value = adding;
+      }
+    } else {
+      System.out.println("Error: index is out of bounds");
+    }
+  }
+
+  public String remove(int index){
+    if (index > -1 && index < size){
+      String removed = data[index];
+      for (int i = index; i < data.length - 1; i++){
+        data[i] = data[i+1];
+      }
+      set(data.length-1, null);
+      size--;
+      return removed;
+    }
+    System.out.println("Error: index is out of bounds");
+    return null;
+  }
+
+  public boolean remove(String target){
+    int firstIndex = data.indexOf(target);
+    if (firstIndex > 0){
+      remove(firstIndex);
+      return true;
+    }
+    return false;
   }
 
 }
