@@ -124,7 +124,7 @@ public class SuperArray{
   }
 
   public boolean remove(String target){
-    int firstIndex = data.indexOf(target);
+    int firstIndex = indexOf(target);
     if (firstIndex > 0){
       remove(firstIndex);
       return true;
