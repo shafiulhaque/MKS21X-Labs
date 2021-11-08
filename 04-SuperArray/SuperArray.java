@@ -19,16 +19,6 @@ public class SuperArray{
     return size;
   }
 
-  private void resize(){
-    if (size == data.length){
-    String[] data2 = new String[size*2 + 1];
-    for(int i = 0; i < size; i++){
-      data2[i] = data[i];
-    }
-    data = data2;
-  }
-  }
-
   public String toString(){
     String joe = "[";
     for (int i = 0; i < size; i++){
@@ -50,12 +40,23 @@ public class SuperArray{
   public String get(int index){
     if (index > -1 && index < size){
       return data[index];
+    } else {
+      System.out.println("Error: index is out of bounds (RIP)");
+      return null;
     }
-    System.out.println("Error: index is out of bounds");
-    return null;
   }
 
   // mutator methods
+  private void resize(){
+    if (size == data.length){
+    String[] data2 = new String[size*2 + 1];
+    for(int i = 0; i < size; i++){
+      data2[i] = data[i];
+    }
+    data = data2;
+  }
+  }
+
   public boolean add(String joe){
     resize();
     data[size] = joe;
@@ -68,9 +69,10 @@ public class SuperArray{
       String x = data[index];
       data[index] = element;
       return x;
+    } else {
+      System.out.println("Error: index is out of bounds (RIP)");
+      return null;
     }
-    System.out.println("Error: index is out of bounds");
-    return null;
   }
 
   // other accessor methods
@@ -85,7 +87,7 @@ public class SuperArray{
   }
 
   public int lastIndexOf(String target){
-    for (int i = size - 1; i > 0; i--){
+    for (int i = size - 1; i >= 0; i--){
       if (data[i].equals(target)){
         return i;
       }
@@ -105,7 +107,7 @@ public class SuperArray{
         value = adding;
       }
     } else {
-      System.out.println("Error: index is out of bounds");
+      System.out.println("Error: index is out of bounds (RIP)");
     }
   }
 
@@ -118,9 +120,10 @@ public class SuperArray{
       set(data.length-1, null);
       size--;
       return removed;
+    } else {
+      System.out.println("Error: index is out of bounds (RIP)");
+      return null;
     }
-    System.out.println("Error: index is out of bounds");
-    return null;
   }
 
   public boolean remove(String target){
