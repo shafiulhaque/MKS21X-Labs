@@ -76,5 +76,19 @@ public class Tester{
     System.out.println(yessir.remove(6));
     System.out.println(yessir);
     System.out.println(yessir.toStringDebug());
+    System.out.println();
+
+    SuperArray joemama2 = new SuperArray(10);
+    numOfItems = 10;
+    for (int i = 0; i < numOfItems; i++){
+      String n = "" + i;
+      System.out.println(joemama2.add(n));
+    }
+    System.out.println(joemama2);
+    System.out.println(joemama2.set(7, "1"));
+    System.out.println(joemama2);
+    System.out.println(joemama2.indexOf("1"));
+    System.out.println(joemama2.lastIndexOf("1"));
+
   }
 }
