@@ -20,15 +20,16 @@ public class Tester{
     System.out.println();
 
     System.out.println("Phase Two Test Cases: Change Values");
-    String joemama = "jo";
+    String name = "jo";
     for(int i = 0; i < joe.size(); i++){
-      System.out.println(joe.set(i, joemama));
-      joemama += "e";
+      System.out.println(joe.set(i, name));
+      name += "e";
     }
     System.out.println(joe);
     System.out.println();
 
     System.out.println("Phase Two Test Cases: Remove");
+    System.out.println(joe);
     for(int i = 0; i < joe.size() - 1; i++){
       joe.set(i, joe.get(i+1));
       System.out.println(joe);
