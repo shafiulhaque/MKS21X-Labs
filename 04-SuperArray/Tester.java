@@ -1,16 +1,12 @@
 public class Tester{
   public static void main(String[] args) {
+
     System.out.println("Phase One Test Cases");
     SuperArray joe = new SuperArray();
-    System.out.println(joe.add("one"));
-    System.out.println(joe.add("two"));
-    System.out.println(joe.add("three"));
-    System.out.println(joe.add("four"));
-    System.out.println(joe.add("five"));
-    System.out.println(joe.add("six"));
-    System.out.println(joe.add("seven"));
-    System.out.println(joe.add("eight"));
-    System.out.println(joe.add("nine"));
+    String[] numbers = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    for (int i = 0; i < numbers.length; i++){
+      System.out.println(joe.add(numbers[i]));
+    }
     System.out.println(joe);
     System.out.println(joe.toStringDebug());
     System.out.println(joe.get(8));
@@ -97,6 +93,7 @@ public class Tester{
     System.out.println(joemama2.remove("ok"));
     System.out.println(joemama2);
     System.out.println(joemama2.toStringDebug());
-
+    System.out.println(joemama2.remove(0));
+    System.out.println(joemama2);
   }
 }
