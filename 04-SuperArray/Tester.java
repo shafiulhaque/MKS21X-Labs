@@ -92,6 +92,11 @@ public class Tester{
     System.out.println(joemama2.size());
     joemama2.add(2, "joe");
     System.out.println(joemama2);
+    System.out.println(joemama2.remove(4));
+    System.out.println(joemama2);
+    System.out.println(joemama2.remove("ok"));
+    System.out.println(joemama2);
+    System.out.println(joemama2.toStringDebug());
 
   }
 }
