@@ -87,4 +87,24 @@ public class SuperArray{
     return null;
   }
 
+  // other accessor methods
+
+  public int indexOf(String target){
+    for (int i = 0; i < size; i++){
+      if (data[i].equals(target)){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public int lastIndexOf(String target){
+    for (int i = size - 1; i > 0; i--){
+      if (data[i].equals(target)){
+        return i;
+      }
+    }
+    return -1;
+  }
+
 }
