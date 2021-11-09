@@ -41,7 +41,7 @@ public class SuperArray{
     if (index > -1 && index < size){
       return data[index];
     } else {
-      System.out.println("Error: index is out of bounds (RIP)");
+      System.out.println("Error: index is out of bounds for get (RIP)");
       return null;
     }
   }
@@ -49,11 +49,14 @@ public class SuperArray{
   // mutator methods
   private void resize(){
     if (size == data.length){
-    String[] data2 = new String[size*2 + 1];
+    String[] data2 = new String[size];
     for(int i = 0; i < size; i++){
       data2[i] = data[i];
     }
-    data = data2;
+    data = new String[size*2 + 1];
+    for(int j = 0; j < size; j++){
+      data[j] = data2[j];
+    }
   }
   }
 
@@ -70,7 +73,7 @@ public class SuperArray{
       data[index] = element;
       return x;
     } else {
-      System.out.println("Error: index is out of bounds (RIP)");
+      System.out.println("Error: index is out of bounds for set (RIP)");
       return null;
     }
   }
@@ -107,21 +110,21 @@ public class SuperArray{
         value = adding;
       }
     } else {
-      System.out.println("Error: index is out of bounds (RIP)");
+      System.out.println("Error: index is out of bounds for add (RIP)");
     }
   }
 
   public String remove(int index){
     if (index > -1 && index < size){
       String removed = data[index];
-      for (int i = index; i < data.length - 1; i++){
+      for (int i = index; i < size - 1; i++){
         data[i] = data[i+1];
       }
-      set(data.length-1, null);
+      set(size - 1, null);
       size--;
       return removed;
     } else {
-      System.out.println("Error: index is out of bounds (RIP)");
+      System.out.println("Error: index is out of bounds for remove (RIP)");
       return null;
     }
   }
