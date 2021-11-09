@@ -91,12 +91,12 @@ public class Tester{
     System.out.println("Where is the last one (Beat)?: Index " + joemama2.lastIndexOf("Beat"));
     System.out.println("Size: " + joemama2.size());
     joemama2.add(3, "Even");
-    System.out.println(joemama2);
+    System.out.println(joemama2.toStringDebug());
     System.out.println(joemama2.remove(8));
     System.out.println(joemama2);
     System.out.println("Trying to remove a string not in it: " + joemama2.remove("ok"));
     System.out.println(joemama2);
-    System.out.println("Removing string at index " + joemama2.remove(0));
+    System.out.println("Removing string at index: " + joemama2.remove(0));
     System.out.println(joemama2);
     System.out.println(joemama2.toStringDebug());
   }
