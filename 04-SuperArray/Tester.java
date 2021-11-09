@@ -17,6 +17,7 @@ public class Tester{
     for(int i = 0; i < joe.size(); i++){
       System.out.println(joe.get(i));
     }
+    System.out.println("Index Out Of Bounds Won't Work: " + joe.get(-5));
     System.out.println();
 
     System.out.println("Phase Two Test Cases: Change Values");
@@ -25,6 +26,7 @@ public class Tester{
       System.out.println(joe.set(i, name));
       name += "e";
     }
+    System.out.println("Index Out Of Bounds Won't Work: " + joe.set(23423, "joemama"));
     System.out.println(joe);
     System.out.println();
 
@@ -75,26 +77,27 @@ public class Tester{
     System.out.println(yessir.toStringDebug());
     System.out.println();
 
-    SuperArray joemama2 = new SuperArray(11);
-    numOfItems = 10;
-    for (int i = 0; i < numOfItems; i++){
-      String n = "" + i;
-      System.out.println(joemama2.add(n));
+    System.out.println("Phase Four Part Two Test Cases");
+    SuperArray joemama2 = new SuperArray(10);
+    String[] mrk = {"Mr", "K", "Cannot", "Beat", "Me", "At", "A", "Typing", "Race"};
+    for (int i = 0; i < mrk.length; i++){
+      System.out.println(joemama2.add(mrk[i]));
     }
+
     System.out.println(joemama2);
-    System.out.println(joemama2.set(7, "1"));
+    System.out.println("Replacing " + joemama2.set(7, "Beat") + " with Beat");
     System.out.println(joemama2);
-    System.out.println(joemama2.indexOf("1"));
-    System.out.println(joemama2.lastIndexOf("1"));
-    System.out.println(joemama2.size());
-    joemama2.add(2, "joe");
+    System.out.println("Where is the first one (Beat)?: Index " + joemama2.indexOf("Beat"));
+    System.out.println("Where is the last one (Beat)?: Index " + joemama2.lastIndexOf("Beat"));
+    System.out.println("Size: " + joemama2.size());
+    joemama2.add(3, "Even");
     System.out.println(joemama2);
-    System.out.println(joemama2.remove(4));
+    System.out.println(joemama2.remove(8));
     System.out.println(joemama2);
-    System.out.println(joemama2.remove("ok"));
+    System.out.println("Trying to remove a string not in it: " + joemama2.remove("ok"));
+    System.out.println(joemama2);
+    System.out.println("Removing string at index " + joemama2.remove(0));
     System.out.println(joemama2);
     System.out.println(joemama2.toStringDebug());
-    System.out.println(joemama2.remove(0));
-    System.out.println(joemama2);
   }
 }
