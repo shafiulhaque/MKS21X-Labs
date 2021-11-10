@@ -54,7 +54,7 @@ public class SuperArray{
       data2[i] = data[i];
     }
     data = new String[size*2 + 1];
-    for(int j = 0; j < size; j++){
+    for(int j = 0; j < data2.length; j++){
       data[j] = data2[j];
     }
   }
@@ -101,7 +101,8 @@ public class SuperArray{
   // other mutator methods
 
   public void add(int index, String value){
-    if (index > -1 && index < size){
+    resize();
+    if (index > -1 && index <= size){
       String adding = "";
       size++;
       for (int i = index; i < data.length; i++){
