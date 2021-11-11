@@ -49,16 +49,25 @@ public class SuperArrayExceptionTester{
 
     //Test4: set size()
     testNum++;
-    testName = "set size() something";
+    testName = "set out of bounds size()";
     list = init();
     try{
-        list.set(-1, "joe");
+        list.set(list.size(), "JOEMAMA");
         System.out.println(testNum+". FAIL! No exception thrown "+testName);
     }catch(IndexOutOfBoundsException e){
       System.out.println(testNum+". PASS "+testName);
     }
 
     //Test5: add(-1,value)
+    testNum++;
+    testName = "set size() something";
+    list = init();
+    try{
+        list.set(list.size(), "JOEMAMA");
+        System.out.println(testNum+". FAIL! No exception thrown "+testName);
+    }catch(IndexOutOfBoundsException e){
+      System.out.println(testNum+". PASS "+testName);
+    }
 
     //Test6: add(size()+1,value)
 
