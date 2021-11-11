@@ -14,7 +14,7 @@ public class SuperArray{
       data = new String[initialCapacity];
       size = 0;
     } else {
-      throw new IllegalArgumentException("initialCapacity is negative");
+      throw new IllegalArgumentException("initialCapacity: " + initialCapacity + " is negative");
     }
   }
 
@@ -45,8 +45,9 @@ public class SuperArray{
     if (index > -1 && index < size){
       return data[index];
     } else {
-      System.out.println("Error: index is out of bounds for get (RIP)");
-      return null;
+      //System.out.println("Error: index is out of bounds for get (RIP)");
+      //return null;
+      throw new IndexOutOfBoundsException("Index: " + index + " is out of bounds (invalid)");
     }
   }
 
@@ -77,8 +78,9 @@ public class SuperArray{
       data[index] = element;
       return x;
     } else {
-      System.out.println("Error: index is out of bounds for set (RIP)");
-      return null;
+      //System.out.println("Error: index is out of bounds for set (RIP)");
+      //return null;
+      throw new IndexOutOfBoundsException("Index: " + index + " is out of bounds (invalid)");
     }
   }
 
@@ -115,7 +117,8 @@ public class SuperArray{
         value = adding;
       }
     } else {
-      System.out.println("Error: index is out of bounds for add (RIP)");
+      //System.out.println("Error: index is out of bounds for add (RIP)");
+      throw new IndexOutOfBoundsException("Index: " + index + " is out of bounds (invalid)");
     }
   }
 
@@ -129,8 +132,9 @@ public class SuperArray{
       size--;
       return removed;
     } else {
-      System.out.println("Error: index is out of bounds for remove (RIP)");
-      return null;
+      //System.out.println("Error: index is out of bounds for remove (RIP)");
+      //return null;
+      throw new IndexOutOfBoundsException("Index: " + index + " is out of bounds (invalid)");
     }
   }
 
