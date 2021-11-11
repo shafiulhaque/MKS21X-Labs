@@ -42,7 +42,7 @@ public class SuperArray{
   }
 
   public String get(int index){
-    if (index > -1 && index < size){
+    if (index >= 0 && index < size){
       return data[index];
     } else {
       //System.out.println("Error: index is out of bounds for get (RIP)");
@@ -73,7 +73,7 @@ public class SuperArray{
   }
 
   public String set(int index, String element){
-    if (index > -1 && index < size){
+    if (index >= 0 && index < size){
       String x = data[index];
       data[index] = element;
       return x;
@@ -108,7 +108,7 @@ public class SuperArray{
 
   public void add(int index, String value){
     resize();
-    if (index > -1 && index <= size){
+    if (index >= 0 && index <= size){
       String adding = "";
       size++;
       for (int i = index; i < data.length; i++){
@@ -123,7 +123,7 @@ public class SuperArray{
   }
 
   public String remove(int index){
-    if (index > -1 && index < size){
+    if (index >= 0 && index < size){
       String removed = data[index];
       for (int i = index; i < size - 1; i++){
         data[i] = data[i+1];

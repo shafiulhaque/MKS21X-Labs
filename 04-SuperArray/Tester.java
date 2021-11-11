@@ -17,7 +17,11 @@ public class Tester{
     for(int i = 0; i < joe.size(); i++){
       System.out.println(joe.get(i));
     }
-    System.out.println("Index Out Of Bounds Won't Work: " + joe.get(-5));
+    try{
+      System.out.println("Index Out Of Bounds Won't Work: " + joe.get(-5));
+    }catch(IndexOutOfBoundsException e){
+      System.out.println("Index Out Of Bounds Won't Work");
+    }
     System.out.println();
 
     System.out.println("Phase Two Test Cases: Change Values");
@@ -26,7 +30,11 @@ public class Tester{
       System.out.println(joe.set(i, name));
       name += "e";
     }
-    System.out.println("Index Out Of Bounds Won't Work: " + joe.set(23423, "joemama"));
+    try{
+      System.out.println("Index Out Of Bounds Won't Work: " + joe.set(23423, "joemama"));
+    }catch(IndexOutOfBoundsException e){
+      System.out.println("Index Out Of Bounds Won't Work");
+    }
     System.out.println(joe);
     System.out.println();
 
