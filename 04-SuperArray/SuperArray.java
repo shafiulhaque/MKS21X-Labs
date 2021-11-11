@@ -10,8 +10,12 @@ public class SuperArray{
   }
 
   public SuperArray(int initialCapacity){
-    data = new String[initialCapacity];
-    size = 0;
+    if (initialCapacity >= 0){
+      data = new String[initialCapacity];
+      size = 0;
+    } else {
+      throw new IllegalArgumentException("initialCapacity is negative");
+    }
   }
 
   // accessor methods
