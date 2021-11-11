@@ -60,21 +60,38 @@ public class SuperArrayExceptionTester{
 
     //Test5: add(-1,value)
     testNum++;
-    testName = "set size() something";
+    testName = "add out of bounds -1";
     list = init();
     try{
-        list.set(list.size(), "JOEMAMA");
+        list.add(-1, "Mr.Konstantinovich");
         System.out.println(testNum+". FAIL! No exception thrown "+testName);
     }catch(IndexOutOfBoundsException e){
       System.out.println(testNum+". PASS "+testName);
     }
 
     //Test6: add(size()+1,value)
+    testNum++;
+    testName = "add out of bounds size()+1";
+    list = init();
+    try{
+        list.add(list.size()+1, "onefishtwofish");
+        System.out.println(testNum+". FAIL! No exception thrown "+testName);
+    }catch(IndexOutOfBoundsException e){
+      System.out.println(testNum+". PASS "+testName);
+    }
 
     //Test7: constructor(-1 size)
     //BE CAREFUL! Which exception is expected?
-
-
+    testNum++;
+    testName = "constructor size out of bounds -1";
+    list = init();
+    try {
+      list = new SuperArray(-1);
+      System.out.println(testNum + ". FAIL! No exception thrown " + testName);
+    }
+    catch(IllegalArgumentException e) {
+      System.out.println(testNum + ". PASS " + testName);
+    }
 
   }
 }
