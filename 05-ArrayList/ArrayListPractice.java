@@ -49,5 +49,14 @@ public class ArrayListPractice {
       data1.add(""+i);
     }
     System.out.println(data1.size());
+    ArrayList<String> data2 = new ArrayList<String>(250000);
+    data2.add("");
+    data2.add("");
+    data2.add("joe");
+    data2.add("ok");
+    data2.add("now");
+    System.out.println(data2);
+    System.out.println(replaceEmpty(data2));
+    System.out.println(makeReversedList(data2));
   }
 }
