@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 public class ArrayListPractice {
   public static ArrayList<String> replaceEmpty( ArrayList<String> data){
     //return an new ArrayList that has all of the values of the original ArrayList except
@@ -25,41 +25,25 @@ public class ArrayListPractice {
   //return a new ArrayList that has all values of a and b in alternating order that is:
   //a[0], b[0], a[1], b[1]...
   //when one list is longer than the other, just append the remaining values to the end.
-  int total, dec, lastTotal;
+  int total, lastTotal;
+  ArrayList<String> bigData = new ArrayList<String>();
   ArrayList<String> newData = new ArrayList<String>();
   if (a.size()>b.size()){
+    bigData = a;
     total = b.size();
     lastTotal = a.size();
-    dec = a.size() - b.size();
   } else {
+    bigData = b;
     total = a.size();
     lastTotal = b.size();
-    dec = b.size() - a.size();
   }
   for (int i = 0; i < total; i++){
     newData.add(a.get(i));
     newData.add(b.get(i));
   }
-
-  for (int i = dec; i < lastTotal; i++){
-    newData.add(b.get(i));
+  for (int i = total; i < lastTotal; i++){
+    newData.add(bigData.get(i));
   }
   return newData;
 }
-  public static void main(String[] args) {
-    ArrayList<String> data1 = new ArrayList<String>(250000);
-    for(int i = 0; i < 300000; i++){
-      data1.add(""+i);
-    }
-    System.out.println(data1.size());
-    ArrayList<String> data2 = new ArrayList<String>(250000);
-    data2.add("");
-    data2.add("");
-    data2.add("joe");
-    data2.add("ok");
-    data2.add("now");
-    System.out.println(data2);
-    System.out.println(replaceEmpty(data2));
-    System.out.println(makeReversedList(data2));
-  }
 }
