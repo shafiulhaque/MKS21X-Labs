@@ -48,11 +48,11 @@ public class Triangles{
         partOneTotal += partOne(g, h, i);
         partTwoTotal += partTwo(a, b, c, d, e, f, g, h, i);
       }
-    System.out.println(partOneTotal);
-    System.out.println(partTwoTotal);
+    System.out.println("PART ONE ANSWER: " + partOneTotal);
+    System.out.println("PART TWO ANSWER: " + partTwoTotal);
     input.close();
   } catch (FileNotFoundException e) {
-    System.out.println("Exception: Cannot find file");
+    System.out.println("Exception: Cannot find file (RIP)");
     e.printStackTrace();
   }
 }
