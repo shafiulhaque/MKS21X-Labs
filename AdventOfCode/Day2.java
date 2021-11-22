@@ -32,7 +32,7 @@ public class Day2{
   }
 
 public static void main(String[] args) throws Exception {
-  Scanner joe = new Scanner("Day2gift.txt");
+  Scanner joe = new Scanner(new File("Day2gift.txt"));
   int total = 0;
   while (joe.hasNextLine()){
     total += getVals(getNums(joe.nextLine()));
