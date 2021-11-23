@@ -47,7 +47,8 @@ public class Wrapping{
 
 public static void main(String[] args){
   try {
-    Scanner joe = new Scanner(new File(args[0]));
+    File yes = new File(args[0]);
+    Scanner joe = new Scanner(yes);
     int totalWrapping = 0;
     int totalRibbon = 0;
     while (joe.hasNextLine()){
