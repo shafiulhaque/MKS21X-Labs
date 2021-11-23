@@ -29,7 +29,9 @@ public class Triangles{
   }
   public static void main(String[] args) {
     try {
-      File theFile = new File("ReadFile.txt");
+      String file = args[0];
+      int number = Integer.parseInt(args[1]);
+      File theFile = new File(file);
       Scanner input = new Scanner(theFile);
       int partOneTotal = 0;
       int partTwoTotal = 0;
@@ -43,13 +45,17 @@ public class Triangles{
         int g = input.nextInt();
         int h = input.nextInt();
         int i = input.nextInt();
-        partOneTotal += partOne(a, b, c);
-        partOneTotal += partOne(d, e, f);
-        partOneTotal += partOne(g, h, i);
+        if (number == 1){
+          partOneTotal += partOne(a, b, c);
+          partOneTotal += partOne(d, e, f);
+          partOneTotal += partOne(g, h, i);
+        }
+        if (number == 2){
         partTwoTotal += partTwo(a, b, c, d, e, f, g, h, i);
       }
-    System.out.println("PART ONE ANSWER: " + partOneTotal);
-    System.out.println("PART TWO ANSWER: " + partTwoTotal);
+      }
+    if (number == 1) System.out.println("PART ONE ANSWER: " + partOneTotal);
+    if (number == 2) System.out.println("PART TWO ANSWER: " + partTwoTotal);
     input.close();
   } catch (FileNotFoundException e) {
     System.out.println("Exception: Cannot find file (RIP)");
