@@ -21,7 +21,7 @@ public class UserInput{
       if (numbers.get(i) > max) max = numbers.get(i);
       total += numbers.get(i);
     }
-    
+
     System.out.println("You entered: " + numbers);
     System.out.println("Mean: " + total/numbers.size());
     System.out.println("Min value: " + min);
