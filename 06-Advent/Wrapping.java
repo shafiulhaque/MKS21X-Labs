@@ -47,18 +47,20 @@ public class Wrapping{
 
 public static void main(String[] args){
   try {
-    File yes = new File(args[0]);
-    Scanner joe = new Scanner(yes);
+    String file = args[0];
+    int number = Integer.parseInt(args[1]);
+    File theFile = new File(file);
+    Scanner input = new Scanner(theFile);
     int totalWrapping = 0;
     int totalRibbon = 0;
-    while (joe.hasNextLine()){
-      String[] ok = getNums(joe.nextLine());
+    while (input.hasNextLine()){
+      String[] ok = getNums(input.nextLine());
       totalWrapping += getWrap(ok);
       totalRibbon += getRib(ok);
     }
-    System.out.println("Total square feet of wrapping paper " + totalWrapping + ".");
-    System.out.println("Total feet of ribbon " + totalRibbon + ".");
-
+    if (number == 1) System.out.println("Total square feet of wrapping paper: " + totalWrapping + ".");
+    if (number == 2) System.out.println("Total feet of ribbon: " + totalRibbon + ".");
+    input.close();
   } catch (FileNotFoundException e) {
     System.out.println("Exception: Cannot find file (RIP)");
     e.printStackTrace();
