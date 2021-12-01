@@ -19,7 +19,7 @@ public class Sorts{
   }
 
   public static void main (String[] args){
-    System.out.println("TEST CASES PART ONE");
+    System.out.println("TEST CASES PART TWO");
     int[] result = new int[]{3, 5, 2, 1};
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
@@ -35,6 +35,19 @@ public class Sorts{
     result = new int[]{0};
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
+
+    System.out.println("TEST CASES PART TWO");
+    int[] arr = new int[20];
+    for (int i = 0; i < 20; i++){
+      int joemama = (int)(Math.random()*(27+3+1))+3;
+      arr[i] = joemama;
+    }
+    System.out.println(Arrays.toString(arr));
+    System.out.println("Let's fix this:");
+    bubbleSort(arr);
+    System.out.println(Arrays.toString(arr));
+
+
 
   }
 }
