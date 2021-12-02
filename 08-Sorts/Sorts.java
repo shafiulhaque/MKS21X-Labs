@@ -21,7 +21,7 @@ public class Sorts{
   public static int[] makeRandom(int length, int min, int max){
     int[] arr = new int[length];
     for (int i = 0; i < length; i++){
-      arr[i] = (Math.random()*(max-min+1)) + min;
+      arr[i] = Math.random()*((max-min+1)) + min;
     }
   }
 
