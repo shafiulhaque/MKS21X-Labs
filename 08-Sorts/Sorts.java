@@ -22,8 +22,8 @@ public class Sorts{
  */
  public static void selectionSort(int[] ary) {
    if (ary.length > 0){
-     int min = ary[0];
-     int minindex = 0;
+     int min; //= ary[0];
+     int minindex; //= 0;
      int swap;
    for (int i = 0; i < ary.length; i++){
      min = ary[i];
