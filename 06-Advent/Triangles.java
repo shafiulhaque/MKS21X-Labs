@@ -50,8 +50,8 @@ public class Triangles{
         partOneTotal += partOne(g, h, i);
         partTwoTotal += partTwo(a, b, c, d, e, f, g, h, i);
       }
-    if (number == 1) System.out.println("PART ONE ANSWER: " + partOneTotal);
-    if (number == 2) System.out.println("PART TWO ANSWER: " + partTwoTotal);
+    if (number == 1) System.out.println(partOneTotal);
+    if (number == 2) System.out.println(partTwoTotal);
     input.close();
   } catch (FileNotFoundException e) {
     System.out.println("Exception: Cannot find file (RIP)");
