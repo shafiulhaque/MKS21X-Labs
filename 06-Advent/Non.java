@@ -75,8 +75,8 @@ public class Non{
         System.out.println(ok);
         System.out.println(totalNewNice);
       }
-      if (number == 1) System.out.println("Total number of nice strings: " + totalNice + ".");
-      if (number == 2) System.out.println("Total number of new nice strings: " + totalNewNice + ".");
+      if (number == 1) System.out.println(totalNice);
+      if (number == 2) System.out.println(totalNewNice);
       input.close();
     } catch (FileNotFoundException e) {
       System.out.println("Exception: Cannot find file (RIP)");
