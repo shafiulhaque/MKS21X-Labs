@@ -58,8 +58,8 @@ public static void main(String[] args){
       totalWrapping += getWrap(ok);
       totalRibbon += getRib(ok);
     }
-    if (number == 1) System.out.println("Total square feet of wrapping paper: " + totalWrapping + ".");
-    if (number == 2) System.out.println("Total feet of ribbon: " + totalRibbon + ".");
+    if (number == 1) System.out.println(totalWrapping);
+    if (number == 2) System.out.println(totalRibbon);
     input.close();
   } catch (FileNotFoundException e) {
     System.out.println("Exception: Cannot find file (RIP)");
