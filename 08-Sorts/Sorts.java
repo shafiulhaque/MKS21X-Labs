@@ -7,7 +7,7 @@ public class Sorts{
   */
   public static void bubbleSort(int[] data){
     for (int i = 0; i < data.length - 1; i++){
-      for (int j = 0; j < data.length - 1; j++){
+      for (int j = 0; j < data.length - 1 - i; j++){
         if (data[j] > data[j+1]){
           int joe = data[j];
           int joe2 = data[j+1];
@@ -17,6 +17,30 @@ public class Sorts{
       }
     }
   }
+
+  /*Selection sort
+ */
+ public static void selectionSort(int[] ary) {
+   if (ary.length > 0){
+     int min = ary[0];
+     int minindex = 0;
+     int swap;
+   for (int i = 0; i < ary.length; i++){
+     min = ary[i];
+     minindex = i;
+     for (int j = i; j < ary.length; j++){
+       if (ary[j] < min){
+         min = ary[j];
+         minindex = j;
+       }
+     }
+     swap = ary[i];
+     ary[i] = min;
+     ary[minindex] = swap;
+   }
+ }
+ }
+
 
   public static int[] makeRandom(int length, int min, int max){
     int[] arr = new int[length];
@@ -28,13 +52,15 @@ public class Sorts{
 
   public static boolean compareArray(int[] data){
     int[] data2 = new int[data.length];
+    int[] data1 = new int[data.length];
     for (int i = 0; i < data.length; i++){
       data2[i] = data[i];
+      data1[i] = data[i];
     }
     bubbleSort(data2);
-    Arrays.sort(data);
+    Arrays.sort(data1);
     for (int i = 0; i < data.length; i++){
-      if (data[i] != data2[i]){
+      if (data1[i] != data2[i]){
         return false;
       }
     }
@@ -47,7 +73,9 @@ public class Sorts{
 
     System.out.println("Regular Case: int[]{3, 5, 2, 1};");
     int[] result = new int[]{3, 5, 2, 1};
-    System.out.println(compareArray(result));
+  //  System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -55,6 +83,8 @@ public class Sorts{
     System.out.println("Regular Case: int[]{2, 0, 4, 8};");
     result = new int[]{2, 0, 4, 8};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -62,6 +92,8 @@ public class Sorts{
     System.out.println("Regular Case: int[]{5, 8, 423, 1, -6, -23, 5};");
     result = new int[]{5, 8, 423, 1, -6, -23, 5};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -69,6 +101,8 @@ public class Sorts{
     System.out.println("Regular Case: int[]{3, 1, 4, -1, 5, -6, 2, -5, 432, -2132, 43232};");
     result = new int[]{3, 1, 4, -1, 5, -6, 2, -5, 432, -2132, 43232};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -76,6 +110,8 @@ public class Sorts{
     System.out.println("Regular Case: int[]{-2, -4, 12, 342, 2, -2, 0, 20, -62, 4, 7, 9, 29, -78};");
     result = new int[]{-2, -4, 12, 342, 2, -2, 0, 20, -62, 4, 7, 9, 29, -78};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -83,6 +119,8 @@ public class Sorts{
     System.out.println("Special Case: One Number");
     result = new int[]{0};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -90,6 +128,8 @@ public class Sorts{
     System.out.println("Special Case: Blank Array");
     result = new int[]{};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -97,6 +137,8 @@ public class Sorts{
     System.out.println("Special Case: All Same Value");
     result = new int[]{2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
@@ -104,6 +146,8 @@ public class Sorts{
     System.out.println("Special Case: Reverse Sorted");
     result = new int[]{10, 7, 4, 2, 1, -3, -6, -12, -19};
     System.out.println(compareArray(result));
+    selectionSort(result);
+    System.out.println(Arrays.toString(result));
     bubbleSort(result);
     System.out.println(Arrays.toString(result));
     System.out.println();
