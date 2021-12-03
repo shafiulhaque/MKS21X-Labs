@@ -21,8 +21,9 @@ public class Sorts{
   public static int[] makeRandom(int length, int min, int max){
     int[] arr = new int[length];
     for (int i = 0; i < length; i++){
-      arr[i] = Math.random()*((max-min+1)) + min;
+//      arr[i] = Math.random()*(max-min+1) + min;
     }
+    return arr;
   }
 
   public static boolean compareArray(int[] data){
@@ -111,7 +112,7 @@ public class Sorts{
     System.out.println();
 
     System.out.println("Random Test Case");
-    int[] arr = new int[5];
+    int[] arr = new int[20];
     for (int i = 0; i < 20; i++){
       int joemama = (int)(Math.random()*(27+3+1))+3;
       arr[i] = joemama;
