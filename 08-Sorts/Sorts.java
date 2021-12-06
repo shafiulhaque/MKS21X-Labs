@@ -41,6 +41,27 @@ public class Sorts{
  }
  }
 
+ public static void insertionSort(int[]data){
+   if (data.length > 1){
+     for (int i = 1; i < data.length; i++){
+       int index = i;
+       int number = data[index];
+       int changeIndex = i-1;
+       if (data[index] < data[changeIndex]){
+         while (changeIndex > 0 && data[index] < data[changeIndex]){
+           changeIndex--;
+       }
+          int change = data[changeIndex+1];
+          for (int j = changeIndex; j < index; j++){
+             change = data[j+1];
+             data[j+1] = data[j];
+          }
+          data[changeIndex] = number;
+     }
+   }
+ }
+}
+
 
   public static int[] makeRandom(int length, int min, int max){
     int[] arr = new int[length];
