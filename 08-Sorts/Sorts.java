@@ -44,23 +44,18 @@ public class Sorts{
  public static void insertionSort(int[]data){
    if (data.length > 1){
      for (int i = 1; i < data.length; i++){
-       int index = i;
-       int number = data[index];
-       int changeIndex = i-1;
-       if (data[index] < data[changeIndex]){
-         while (changeIndex > 0 && data[index] < data[changeIndex]){
-           changeIndex--;
+       int number = data[i];
+       int changeIndex = i;
+       if (data[i] < data[i - 1]){
+         while (changeIndex > 0 && number < data[changeIndex-1]){
+             data[changeIndex] = data[changeIndex - 1];
+             changeIndex--;
+            data[changeIndex] = number;
+         }
        }
-          int change = data[changeIndex+1];
-          for (int j = changeIndex; j < index; j++){
-             change = data[j+1];
-             data[j+1] = data[j];
-          }
-          data[changeIndex] = number;
      }
    }
  }
-}
 
 
   public static int[] makeRandom(int length, int min, int max){
@@ -94,7 +89,7 @@ public class Sorts{
 
     System.out.println("Regular Case: int[]{3, 5, 2, 1};");
     int[] result = new int[]{3, 5, 2, 1};
-  //  System.out.println(compareArray(result));
+    System.out.println(compareArray(result));
     selectionSort(result);
     System.out.println(Arrays.toString(result));
     bubbleSort(result);
