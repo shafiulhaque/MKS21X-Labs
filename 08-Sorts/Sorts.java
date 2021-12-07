@@ -48,8 +48,8 @@ public class Sorts{
        int changeIndex = i;
        if (data[i] < data[i - 1]){
          while (changeIndex > 0 && number < data[changeIndex-1]){
-             data[changeIndex] = data[changeIndex - 1];
-             changeIndex--;
+            data[changeIndex] = data[changeIndex - 1];
+            changeIndex--;
             data[changeIndex] = number;
          }
        }
