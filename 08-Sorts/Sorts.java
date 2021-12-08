@@ -21,10 +21,9 @@ public class Sorts{
   /*Selection sort
  */
  public static void selectionSort(int[] ary) {
-   if (ary.length > 0){
-     int min; //= ary[0];
-     int minindex; //= 0;
-     int swap;
+  int min; //= ary[0];
+  int minindex; //= 0;
+  int swap;
    for (int i = 0; i < ary.length; i++){
      min = ary[i];
      minindex = i;
@@ -38,7 +37,6 @@ public class Sorts{
      ary[i] = min;
      ary[minindex] = swap;
    }
- }
  }
 
  public static void insertionSort(int[]data){

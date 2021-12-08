@@ -16,13 +16,19 @@ import java.util.*;
         //if it works this is for timing purposes.
         Sorts.bubbleSort(randish);
       }
+      if(artie[1].equals("insertion")){
+        //if it works this is for timing purposes.
+        Sorts.insertionSort(randish);
+      }
       if(artie[1].equals("test")){
         //if you need to check if it works this is for verification of correctness
         int[] randish2 = Arrays.copyOf(randish,randish.length);
         int[] randish3 = Arrays.copyOf(randish,randish.length);
+        int[] randish4 = Arrays.copyOf(randish,randish.length);
         Sorts.selectionSort(randish);
         Sorts.bubbleSort(randish2);
         Arrays.sort(randish3);
+        Sorts.insertionSort(randish4);
         if( Arrays.equals(randish,randish3)){
           System.out.println("Selection Correct!");
         }else{
@@ -32,6 +38,11 @@ import java.util.*;
           System.out.println("Bubble Correct!");
         }else{
          System.out.println("Bubble BROKEN!!!!");
+        }
+        if( Arrays.equals(randish4,randish3)){
+          System.out.println("Insertion Correct!");
+        }else{
+         System.out.println("Insertion BROKEN!!!!");
         }
       }
     }
