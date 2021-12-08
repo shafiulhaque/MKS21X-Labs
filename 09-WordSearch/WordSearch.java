@@ -34,7 +34,7 @@ public class WordSearch{
       String joe = "";
       for (int i = 0; i < data.length; i++){
         for (int j = 0; j < data[1].length; j++){
-          joe += data[i][j] + ' ';
+          joe += data[i][j] + " ";
         }
         joe += "\n";
       }
@@ -53,8 +53,19 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    public boolean addWordHorizontal(String word,int row, int col){
+    public boolean addWordHorizontal(String word, int row, int col){
+      int wordLength = word.length();
+      if (col+wordLength-1 > data[1].length - col +1){
+        return false;
+      }
+      for (int i = 0; i < word.length(); i++){
+        if (data[row][col+i-1] != '_' && data[row][col+i-1] != word.charAt(i)){
+          return false;
+        }
+      }
+      return true;
     }
+
 
 
    /**Attempts to add a given word to the specified position of the WordGrid.
@@ -68,6 +79,16 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-    public boolean addWordVertical(String word,int row, int col){
+    public boolean addWordVertical(String word, int row, int col){
+      int wordLength = word.length();
+      if (row+wordLength-1 > data[1].length - row +1){
+        return false;
+      }
+      for (int i = 0; i < word.length(); i++){
+        if (data[row+i-1][col] != '_' && data[row+i-1][col] != word.charAt(i)){
+          return false;
+        }
+      }
+      return true;
     }
 }
