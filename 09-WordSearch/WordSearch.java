@@ -9,10 +9,21 @@ public class WordSearch{
      *@param cols is the starting width of the WordSearch
      */
     public WordSearch(int rows,int cols){
+      data = new char[rows][cols];
+      for (int i = 0; i < rows; i++){
+        for (int j = 0; j < cols; j++){
+          data[i][j] = '_';
+        }
+      }
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear(){
+      for (int i = 0; i < data.length; i++){
+        for (int j = 0; j < data[1].length; j++){
+          data[i][j] = '_';
+        }
+      }
     }
 
     /**Each row is a new line, there is a space between each letter
@@ -20,6 +31,14 @@ public class WordSearch{
      *separated by newlines.
      */
     public String toString(){
+      String joe = "";
+      for (int i = 0; i < data.length; i++){
+        for (int j = 0; j < data[1].length; j++){
+          joe += data[i][j] + ' ';
+        }
+        joe += "\n";
+      }
+      return joe;
     }
 
 
