@@ -54,10 +54,13 @@ public class WordSearch{
       if (wordLength > data[1].length - col){
         return false;
       }
-      for (int i = 0; i < word.length(); i++){
+      for (int i = 0; i < wordLength; i++){
         if (data[row][col+i] != '_' && data[row][col+i] != word.charAt(i)){
           return false;
         }
+      }
+      for (int i = 0; i < wordLength; i++){
+        data[row][col+i] = word.charAt(i);
       }
       return true;
     }
@@ -80,10 +83,13 @@ public class WordSearch{
       if (wordLength > data.length - row){
         return false;
       }
-      for (int i = 0; i < word.length(); i++){
+      for (int i = 0; i < wordLength; i++){
         if (data[row+i][col] != '_' && data[row+i][col] != word.charAt(i)){
           return false;
         }
+      }
+      for (int i = 0; i < wordLength; i++){
+        data[row+i][col] = word.charAt(i);
       }
       return true;
     }
@@ -99,6 +105,19 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned
      *and the board is not modified.
      */
-  //  public boolean addWordDiagonal(String word,int row, int col){
-//    }
+    public boolean addWordDiagonal(String word, int row, int col){
+      int wordLength = word.length();
+      if (data.length - row < wordLength || data[1].length - col < wordLength){
+        return false;
+      }
+      for (int i = 0; i < wordLength; i++){
+        if (data[row+i][col+i] != '_' && data[row+i][col+i] != word.charAt(i)){
+          return false;
+        }
+      }
+      for (int i = 0; i < wordLength; i++){
+        data[row+i][col+i] = word.charAt(i);
+      }
+      return true;
+    }
 }
