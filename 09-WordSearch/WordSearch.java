@@ -1,16 +1,52 @@
+import java.util.*;
+import java.io.*;
 /*Lab9: Word Search generator
 */
 public class WordSearch{
     private char[][]data;
+    private int seed;
+    private Random randgen;
+    private ArrayList<String> wordsAdded;
 
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param rows is the starting height of the WordSearch
      *@param cols is the starting width of the WordSearch
      */
-    public WordSearch(int rows,int cols){
+    public WordSearch(int rows, int cols, String fileName){
+      wordsAdded = new ArrayList<String>();
+      Random rng = new Random(100);
+      int seed = rng.nextInt();
       data = new char[rows][cols];
       clear();
+      try{
+        File joe = new File(fileName);
+        Scanner input = new Scanner(joe);
+        while (input.hasNextLine()){
+          String joemama = input.nextLine();
+          wordsAdded.add(joemama);
+        }
+      } catch(FileNotFoundException e){
+        System.out.println("Txt file doesn't exist");
+      }
+    }
+
+    public WordSearch(int rows, int cols, String fileName, int seed){
+      wordsAdded = new ArrayList<String>();
+      Random rng = new Random();
+      this.seed = seed;
+      data = new char[rows][cols];
+      clear();
+      try{
+        File joe = new File(fileName);
+        Scanner input = new Scanner(joe);
+        while (input.hasNextLine()){
+          String joemama = input.nextLine();
+          wordsAdded.add(joemama);
+        }
+      } catch(FileNotFoundException e){
+        System.out.println("Txt file doesn't exist");
+      }
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
@@ -34,6 +70,12 @@ public class WordSearch{
         }
         joe += "\n";
       }
+      joe += "\n" + "Words: ";
+      for (int i = 0; i < wordsAdded.size() - 1; i++){
+        joe += wordsAdded.get(i) + ", ";
+      }
+      joe += wordsAdded.get(wordsAdded.size() - 1);
+      joe += "\n" + "Seed: " + seed;
       return joe;
     }
 
@@ -49,23 +91,23 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    public boolean addWordHorizontal(String word, int row, int col){
-      int wordLength = word.length();
-      if (wordLength > data[1].length - col){
-        System.out.println("Word cannot fit in wordsearch (RIP)");
-        return false;
-      }
-      for (int i = 0; i < wordLength; i++){
-        if (data[row][col+i] != '_' && data[row][col+i] != word.charAt(i)){
-          System.out.println("Word overlapps with other letters (RIP)");
-          return false;
-        }
-      }
-      for (int i = 0; i < wordLength; i++){
-       data[row][col+i] = word.charAt(i);
-     }
-      return true;
-    }
+    // public boolean addWordHorizontal(String word, int row, int col){
+    //   int wordLength = word.length();
+    //   if (wordLength > data[1].length - col){
+    //     System.out.println("Word cannot fit in wordsearch (RIP)");
+    //     return false;
+    //   }
+    //   for (int i = 0; i < wordLength; i++){
+    //     if (data[row][col+i] != '_' && data[row][col+i] != word.charAt(i)){
+    //       System.out.println("Word overlapps with other letters (RIP)");
+    //       return false;
+    //     }
+    //   }
+    //   for (int i = 0; i < wordLength; i++){
+    //    data[row][col+i] = word.charAt(i);
+    //  }
+    //   return true;
+    // }
 
 
 
@@ -80,23 +122,23 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-    public boolean addWordVertical(String word, int row, int col){
-      int wordLength = word.length();
-      if (wordLength > data.length - row){
-        System.out.println("Word cannot fit in wordsearch (RIP)");
-        return false;
-      }
-      for (int i = 0; i < wordLength; i++){
-        if (data[row+i][col] != '_' && data[row+i][col] != word.charAt(i)){
-          System.out.println("Word overlapps with other letters (RIP)");
-          return false;
-        }
-      }
-      for (int i = 0; i < wordLength; i++){
-        data[row+i][col] = word.charAt(i);
-      }
-      return true;
-    }
+    // public boolean addWordVertical(String word, int row, int col){
+    //   int wordLength = word.length();
+    //   if (wordLength > data.length - row){
+    //     System.out.println("Word cannot fit in wordsearch (RIP)");
+    //     return false;
+    //   }
+    //   for (int i = 0; i < wordLength; i++){
+    //     if (data[row+i][col] != '_' && data[row+i][col] != word.charAt(i)){
+    //       System.out.println("Word overlapps with other letters (RIP)");
+    //       return false;
+    //     }
+    //   }
+    //   for (int i = 0; i < wordLength; i++){
+    //     data[row+i][col] = word.charAt(i);
+    //   }
+    //   return true;
+    // }
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from top left towards the bottom right, it must fit on the board,
@@ -109,32 +151,30 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned
      *and the board is not modified.
      */
-    public boolean addWordDiagonal(String word, int row, int col){
-      int wordLength = word.length();
-      if (data.length - row < wordLength || data[1].length - col < wordLength){
-        System.out.println("Word cannot fit in wordsearch (RIP)");
-        return false;
-      }
-      for (int i = 0; i < wordLength; i++){
-        if (data[row+i][col+i] != '_' && data[row+i][col+i] != word.charAt(i)){
-          System.out.println("Word overlapps with other letters (RIP)");
-          return false;
-        }
-      }
-      for (int i = 0; i < wordLength; i++){
-        data[row+i][col+i] = word.charAt(i);
-      }
-      return true;
-    }
+    // public boolean addWordDiagonal(String word, int row, int col){
+    //   int wordLength = word.length();
+    //   if (data.length - row < wordLength || data[1].length - col < wordLength){
+    //     System.out.println("Word cannot fit in wordsearch (RIP)");
+    //     return false;
+    //   }
+    //   for (int i = 0; i < wordLength; i++){
+    //     if (data[row+i][col+i] != '_' && data[row+i][col+i] != word.charAt(i)){
+    //       System.out.println("Word overlapps with other letters (RIP)");
+    //       return false;
+    //     }
+    //   }
+    //   for (int i = 0; i < wordLength; i++){
+    //     data[row+i][col+i] = word.charAt(i);
+    //   }
+    //   return true;
+    // }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc){
       int wordLen = word.length();
-      // if (data.length - row < rowInc*wordLen || data[1].length - col < colInc*wordLen){
-      //   return false;
-      // }
-      // if (row+rowInc*(wordLen-1) < 0 || col+colInc*(wordLen-1) < 0){
-      //   return false;
-      // }
+      if (rowInc == 0 && colInc == 0){
+        System.out.println("rowInc and colInc won't move");
+        return false;
+      }
       try {
         for (int i = 0; i < wordLen; i++){
           if (data[row+rowInc*i][col+colInc*i] != '_' && data[row+rowInc*i][col+colInc*i] != word.charAt(i)){
