@@ -57,10 +57,11 @@ public class WordSearch{
       for (int i = 0; i < wordLength; i++){
         if (data[row][col+i] != '_' && data[row][col+i] != word.charAt(i)){
           return false;
-        } else {
-          data[row][col+i] = word.charAt(i);
         }
       }
+      for (int i = 0; i < wordLength; i++){
+       data[row][col+i] = word.charAt(i);
+     }
       return true;
     }
 
@@ -85,9 +86,10 @@ public class WordSearch{
       for (int i = 0; i < wordLength; i++){
         if (data[row+i][col] != '_' && data[row+i][col] != word.charAt(i)){
           return false;
-        } else {
-          data[row+i][col] = word.charAt(i);
         }
+      }
+      for (int i = 0; i < wordLength; i++){
+        data[row+i][col] = word.charAt(i);
       }
       return true;
     }
@@ -111,24 +113,29 @@ public class WordSearch{
       for (int i = 0; i < wordLength; i++){
         if (data[row+i][col+i] != '_' && data[row+i][col+i] != word.charAt(i)){
           return false;
-        } else {
-          data[row+i][col+i] = word.charAt(i);
         }
+      }
+      for (int i = 0; i < wordLength; i++){
+        data[row+i][col+i] = word.charAt(i);
       }
       return true;
     }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc){
-      int wordLength = word.length();
-      if (data.length - row < wordLength || data[row].length - col < wordLength){
+      int wordLen = word.length();
+      if (data.length - row < rowInc*wordLen || data[1].length - col < colInc*wordLen){
         return false;
       }
-      for (int i = 0; i < wordLength; i++){
+      if (row+rowInc*(wordLen-1) < 0 || col+colInc*(wordLen-1) < 0){
+        return false;
+      }
+      for (int i = 0; i < wordLen; i++){
         if (data[row+rowInc*i][col+colInc*i] != '_' && data[row+rowInc*i][col+colInc*i] != word.charAt(i)){
           return false;
-        } else {
-          data[row+rowInc*i][col+colInc*i] = word.charAt(i);
         }
+      }
+      for (int i = 0; i < wordLen; i++){
+        data[row+rowInc*i][col+colInc*i] = word.charAt(i);
       }
       return true;
     }
