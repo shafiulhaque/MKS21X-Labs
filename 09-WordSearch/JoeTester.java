@@ -11,6 +11,7 @@ public class JoeTester{
     System.out.println(joe);
     System.out.println(joe.addWordVertical("joe", 3, 4));
     System.out.println(joe);
+
     System.out.println("\n" + "NEXT TEST");
     WordSearch no = new WordSearch(4, 6);
     System.out.println(no);
@@ -25,6 +26,13 @@ public class JoeTester{
     System.out.println("\n");
     System.out.println(no.addWordDiagonal("joe", 1, 3));
     System.out.println(no);
+
+    System.out.println("\n" + "addWord TEST");
+    WordSearch awt = new WordSearch(5, 7);
+    System.out.println(awt);
+    System.out.println(awt.addWord(1, 2, "joe", -1, 1));
+    System.out.println(awt);
+
 
 
   }
