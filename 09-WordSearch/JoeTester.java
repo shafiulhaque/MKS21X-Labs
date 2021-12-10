@@ -42,7 +42,7 @@ public class JoeTester{
     System.out.println(awt);
     System.out.println(awt.addWord(2, 7, "roots", 1, 0));
     System.out.println(awt);
-    System.out.println(awt.addWord(6, 4, "boom", 1, 1));
+    System.out.println(awt.addWord(6, 4, "boosadfsdfsm", 1, 1));
     System.out.println(awt);
 
 

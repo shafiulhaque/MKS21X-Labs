@@ -52,10 +52,12 @@ public class WordSearch{
     public boolean addWordHorizontal(String word, int row, int col){
       int wordLength = word.length();
       if (wordLength > data[1].length - col){
+        System.out.println("Word cannot fit in wordsearch (RIP)");
         return false;
       }
       for (int i = 0; i < wordLength; i++){
         if (data[row][col+i] != '_' && data[row][col+i] != word.charAt(i)){
+          System.out.println("Word overlapps with other letters (RIP)");
           return false;
         }
       }
@@ -81,10 +83,12 @@ public class WordSearch{
     public boolean addWordVertical(String word, int row, int col){
       int wordLength = word.length();
       if (wordLength > data.length - row){
+        System.out.println("Word cannot fit in wordsearch (RIP)");
         return false;
       }
       for (int i = 0; i < wordLength; i++){
         if (data[row+i][col] != '_' && data[row+i][col] != word.charAt(i)){
+          System.out.println("Word overlapps with other letters (RIP)");
           return false;
         }
       }
@@ -108,10 +112,12 @@ public class WordSearch{
     public boolean addWordDiagonal(String word, int row, int col){
       int wordLength = word.length();
       if (data.length - row < wordLength || data[1].length - col < wordLength){
+        System.out.println("Word cannot fit in wordsearch (RIP)");
         return false;
       }
       for (int i = 0; i < wordLength; i++){
         if (data[row+i][col+i] != '_' && data[row+i][col+i] != word.charAt(i)){
+          System.out.println("Word overlapps with other letters (RIP)");
           return false;
         }
       }
@@ -123,16 +129,22 @@ public class WordSearch{
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc){
       int wordLen = word.length();
-      if (data.length - row < rowInc*wordLen || data[1].length - col < colInc*wordLen){
-        return false;
-      }
-      if (row+rowInc*(wordLen-1) < 0 || col+colInc*(wordLen-1) < 0){
-        return false;
-      }
-      for (int i = 0; i < wordLen; i++){
-        if (data[row+rowInc*i][col+colInc*i] != '_' && data[row+rowInc*i][col+colInc*i] != word.charAt(i)){
-          return false;
+      // if (data.length - row < rowInc*wordLen || data[1].length - col < colInc*wordLen){
+      //   return false;
+      // }
+      // if (row+rowInc*(wordLen-1) < 0 || col+colInc*(wordLen-1) < 0){
+      //   return false;
+      // }
+      try {
+        for (int i = 0; i < wordLen; i++){
+          if (data[row+rowInc*i][col+colInc*i] != '_' && data[row+rowInc*i][col+colInc*i] != word.charAt(i)){
+            System.out.println("Word overlapps with other letters (RIP)");
+            return false;
+          }
         }
+      } catch(IndexOutOfBoundsException e){
+        System.out.println("Index is out of bounds (RIP)");
+        return false;
       }
       for (int i = 0; i < wordLen; i++){
         data[row+rowInc*i][col+colInc*i] = word.charAt(i);
