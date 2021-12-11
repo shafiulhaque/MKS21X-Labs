@@ -64,18 +64,18 @@ public class WordSearch{
     public boolean addWord(int row, int col, String word, int rowInc, int colInc){
       int wordLen = word.length();
       if (rowInc == 0 && colInc == 0){
-        System.out.println("rowInc and colInc won't move");
+        //System.out.println("rowInc and colInc won't move");
         return false;
       }
       try {
         for (int i = 0; i < wordLen; i++){
           if (data[row+rowInc*i][col+colInc*i] != '_' && data[row+rowInc*i][col+colInc*i] != word.charAt(i)){
-            System.out.println("Word overlaps with other letters (RIP)");
+            //System.out.println("Word overlaps with other letters (RIP)");
             return false;
           }
         }
       } catch(IndexOutOfBoundsException e){
-        System.out.println("Index is out of bounds, which means word does not fit (RIP) ");
+        //System.out.println("Index is out of bounds, which means word does not fit (RIP) ");
         return false;
       }
       for (int i = 0; i < wordLen; i++){
@@ -98,7 +98,7 @@ public class WordSearch{
        } catch(FileNotFoundException e){
          System.out.println("Txt file doesn't exist");
        }
-       System.out.println(wordsToBeAdded);
+       // System.out.println(wordsToBeAdded);
        int len = wordsToBeAdded.size();
        for (int i = 0; i < len; i++){
          int tries = 0;
@@ -107,15 +107,15 @@ public class WordSearch{
          boolean addedWord = false;
          String joe = wordsToBeAdded.get(randgen.nextInt(wordsToBeAdded.size()));
          while (tries < 10 && !addedWord){
-           System.out.println(joe);
+           // System.out.println(joe);
            rowInc = dir[randgen.nextInt(dir.length)];
            colInc = dir[randgen.nextInt(dir.length)];
            row = randgen.nextInt(data.length);
            col = randgen.nextInt(data[0].length);
-           System.out.println(rowInc);
-           System.out.println(colInc);
-           System.out.println(row);
-           System.out.println(col);
+           // System.out.println(rowInc);
+           // System.out.println(colInc);
+           // System.out.println(row);
+           // System.out.println(col);
            if (addWord(row, col, joe, rowInc, colInc) == true){
              addWord(row, col, joe, rowInc, colInc);
              wordsAdded.add(joe);
