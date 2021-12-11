@@ -27,25 +27,26 @@ public class JoeTester{
     // System.out.println(no.addWordDiagonal("joe", 1, 3));
     // System.out.println(no);
 
-    System.out.println("\n" + "addWord TEST");
-    WordSearch awt = new WordSearch(10, 8, "JoeMama.txt");
-    System.out.println(awt);
-    // System.out.println(awt.addWord(0, 0, "underthere", 1, 0));
+    // System.out.println("\n" + "addWord TEST");
+    // WordSearch awt = new WordSearch(10, 8, "JoeMama.txt");
     // System.out.println(awt);
-    // System.out.println(awt.addWord(0, 0, "utopian", 0, 1));
-    // System.out.println(awt);
-    // System.out.println(awt.addWord(0, 3, "phonetic", 1, 0));
-    // System.out.println(awt);
-    // System.out.println(awt.addWord(2, 0, "dinosaur", 0, 1));
-    // System.out.println(awt);
-    // System.out.println(awt.addWord(0, 3, "piano", 1, 1));
-    // System.out.println(awt);
-    // System.out.println(awt.addWord(2, 7, "roots", 1, 0));
-    // System.out.println(awt);
-    // System.out.println(awt.addWord(6, 4, "boosadfsdfsm", 1, 1));
-    // System.out.println(awt);
+    // // System.out.println(awt.addWord(0, 0, "underthere", 1, 0));
+    // // System.out.println(awt);
+    // // System.out.println(awt.addWord(0, 0, "utopian", 0, 1));
+    // // System.out.println(awt);
+    // // System.out.println(awt.addWord(0, 3, "phonetic", 1, 0));
+    // // System.out.println(awt);
+    // // System.out.println(awt.addWord(2, 0, "dinosaur", 0, 1));
+    // // System.out.println(awt);
+    // // System.out.println(awt.addWord(0, 3, "piano", 1, 1));
+    // // System.out.println(awt);
+    // // System.out.println(awt.addWord(2, 7, "roots", 1, 0));
+    // // System.out.println(awt);
+    // // System.out.println(awt.addWord(6, 4, "boosadfsdfsm", 1, 1));
+    // // System.out.println(awt);
 
-
+    WordSearch joemama = new WordSearch(20, 10, "JoeMama.txt");
+    System.out.println(joemama);
 
   }
 }
