@@ -1,23 +1,28 @@
-import java.util.*;
-import java.io.*;
+import java.util.*; //random, scanner, arraylist
+import java.io.*; //file, filenotfoundexception
 /*Lab9: Word Search generator
 */
 public class WordSearch{
+  // INSTANCE VARIABLES
     private char[][]data;
+    //the random seed used to produce this WordSearch
     private int seed;
+    //a random Object to unify your random calls
     private Random randgen;
+    //all words that were successfully added get moved into wordsAdded.
     private ArrayList<String> wordsAdded;
 
+// CONSTRUCTORS
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param rows is the starting height of the WordSearch
      *@param cols is the starting width of the WordSearch
      */
     public WordSearch(int rows, int cols, String fileName){
-      wordsAdded = new ArrayList<String>();
-      Random rng = new Random(100);
-      int seed = rng.nextInt();
-      data = new char[rows][cols];
+      this.wordsAdded = new ArrayList<String>();
+      this.randgen = new Random();
+      this.seed = randgen.nextInt(10000);
+      this.data = new char[rows][cols];
       clear();
       try{
         File joe = new File(fileName);
@@ -31,11 +36,13 @@ public class WordSearch{
       }
     }
 
+    /*New Constructors:  Both will read in the word text file, then run addAllWords().
+     *Do not fill in random letters after.*/
     public WordSearch(int rows, int cols, String fileName, int seed){
-      wordsAdded = new ArrayList<String>();
-      Random rng = new Random();
+      this.wordsAdded = new ArrayList<String>();
+      this.randgen = new Random();
       this.seed = seed;
-      data = new char[rows][cols];
+      this.data = new char[rows][cols];
       clear();
       try{
         File joe = new File(fileName);
@@ -75,7 +82,7 @@ public class WordSearch{
         joe += wordsAdded.get(i) + ", ";
       }
       joe += wordsAdded.get(wordsAdded.size() - 1);
-      joe += "\n" + "Seed: " + seed;
+      joe += "\n" + "Seed: " + this.seed;
       return joe;
     }
 
