@@ -45,7 +45,7 @@ public class JoeTester{
     // // System.out.println(awt.addWord(6, 4, "boosadfsdfsm", 1, 1));
     // // System.out.println(awt);
 
-    WordSearch joemama = new WordSearch(20, 10, "JoeMama.txt");
+    WordSearch joemama = new WordSearch(20, 10, "OuterSpace.txt", 1982);
     System.out.println(joemama);
 
   }

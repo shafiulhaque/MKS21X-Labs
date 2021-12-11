@@ -25,7 +25,7 @@ public class WordSearch{
     public WordSearch(int rows, int cols, String fileName){
       this.wordsAdded = new ArrayList<String>();
       this.randgen = new Random();
-      this.seed = randgen.nextInt(10000);
+      this.seed = randgen.nextInt();
       this.randgen = new Random(seed);
       this.data = new char[rows][cols];
       clear();
@@ -133,7 +133,7 @@ public class WordSearch{
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear(){
       for (int i = 0; i < data.length; i++){
-        for (int j = 0; j < data[1].length; j++){
+        for (int j = 0; j < data[0].length; j++){
           data[i][j] = '_';
         }
       }
@@ -146,7 +146,7 @@ public class WordSearch{
     public String toString(){
       String joe = "";
       for (int i = 0; i < data.length; i++){
-        for (int j = 0; j < data[1].length; j++){
+        for (int j = 0; j < data[0].length; j++){
           joe += data[i][j] + " ";
         }
         joe += "\n";
