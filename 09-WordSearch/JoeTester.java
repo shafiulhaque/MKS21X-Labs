@@ -44,15 +44,20 @@ public class JoeTester{
     // // System.out.println(awt);
     // // System.out.println(awt.addWord(6, 4, "boosadfsdfsm", 1, 1));
     // // System.out.println(awt);
-
+    System.out.println("FINALLY MADE A WORD SEARCH");
     int row = Integer.parseInt(args[0]);
     int col = Integer.parseInt(args[1]);
     String txt = args[2];
-    int seed = Integer.parseInt(args[3]);
-    System.out.println("FINALLY MADE A WORD SEARCH");
-    WordSearch os = new WordSearch(row, col, txt, seed);
-    System.out.println(os);
-    System.out.println(os.printedWords());
+    if (args.length < 4){
+      WordSearch os = new WordSearch(row, col, txt);
+      System.out.println(os);
+      System.out.println(os.printedWords());
+    } else{
+      int seed = Integer.parseInt(args[3]);
+      WordSearch os = new WordSearch(row, col, txt, seed);
+      System.out.println(os);
+      System.out.println(os.printedWords());
+    }
     //WordSearch s = new WordSearch(20, 10, "Soccer.txt");
     //System.out.println(s);
 
