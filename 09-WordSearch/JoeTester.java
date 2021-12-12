@@ -52,6 +52,7 @@ public class JoeTester{
     System.out.println("FINALLY MADE A WORD SEARCH");
     WordSearch os = new WordSearch(row, col, txt, seed);
     System.out.println(os);
+    System.out.println(os.printedWords());
     //WordSearch s = new WordSearch(20, 10, "Soccer.txt");
     //System.out.println(s);
 

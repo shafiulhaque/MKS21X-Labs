@@ -13,6 +13,8 @@ public class WordSearch{
     private Random randgen;
     //all words that were successfully added get moved into wordsAdded.
     private ArrayList<String> wordsAdded;
+    //answer to the wordsearch puzzle
+    private char[][]answer;
 
 
 // CONSTRUCTORS
@@ -28,8 +30,11 @@ public class WordSearch{
       this.seed = randgen.nextInt();
       this.randgen = new Random(seed);
       this.data = new char[rows][cols];
+      this.answer = new char[rows][cols]; //new
       clear();
       addAllWords(fileName);
+      assignAnswer(); //new
+      jumbleUp(); //NEW
     }
 
     /*New Constructors:  Both will read in the word text file, then run addAllWords().
@@ -39,8 +44,11 @@ public class WordSearch{
       this.seed = seed;
       this.randgen = new Random(seed);
       this.data = new char[rows][cols];
+      this.answer = new char[rows][cols]; //new
       clear();
       addAllWords(fileName);
+      assignAnswer(); //new
+      jumbleUp(); //NEW
     }
 
 
@@ -127,6 +135,23 @@ public class WordSearch{
        }
     }
 
+    private void assignAnswer(){ //NEW
+      for (int i = 0; i < data.length; i++){
+        for (int j = 0; j < data[0].length; j++){
+          answer[i][j] = data[i][j];
+        }
+      }
+    }
+
+    private void jumbleUp(){ //NEW
+      for (int i = 0; i < data.length; i++){
+        for (int j = 0; j < data[0].length; j++){
+          if (data[i][j] == '_'){
+            data[i][j] = (char)(randgen.nextInt(26) + 'A');
+          }
+        }
+      }
+    }
 
 // OTHER IMPORTANT METHODS
 
@@ -148,6 +173,29 @@ public class WordSearch{
       for (int i = 0; i < data.length; i++){
         for (int j = 0; j < data[0].length; j++){
           joe += data[i][j] + " ";
+        }
+        joe += "\n";
+      }
+      joe += "\n" + "Words: ";
+      for (int i = 0; i < wordsAdded.size() - 1; i++){
+        joe += wordsAdded.get(i) + ", ";
+      }
+      if (wordsAdded.size() > 0){
+        joe += wordsAdded.get(wordsAdded.size() - 1);
+      }
+      joe += "\n" + "Seed: " + this.seed;
+      return joe;
+    }
+
+    public String printedWords(){ //NEW
+      String joe = "";
+      for (int i = 0; i < answer.length; i++){
+        for (int j = 0; j < answer[0].length; j++){
+          if (answer[i][j] != '_'){
+            joe += answer[i][j] + " ";
+          } else {
+            joe += "  ";
+          }
         }
         joe += "\n";
       }
