@@ -165,6 +165,7 @@ public class WordSearch{
 
 
 // OLD METHODS
+
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
      *have a corresponding letter to match any letters that it overlaps.
@@ -193,8 +194,6 @@ public class WordSearch{
     //  }
     //   return true;
     // }
-
-
 
    /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from top to bottom, must fit on the WordGrid, and must
