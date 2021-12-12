@@ -11,7 +11,7 @@ public class JoeTester{
     // System.out.println(joe);
     // System.out.println(joe.addWordVertical("joe", 3, 4));
     // System.out.println(joe);
-    //
+
     // System.out.println("\n" + "NEXT TEST");
     // WordSearch no = new WordSearch(4, 6);
     // System.out.println(no);
@@ -45,12 +45,15 @@ public class JoeTester{
     // // System.out.println(awt.addWord(6, 4, "boosadfsdfsm", 1, 1));
     // // System.out.println(awt);
 
-    WordSearch os = new WordSearch(20, 10, "OuterSpace.txt");
+    int row = Integer.parseInt(args[0]);
+    int col = Integer.parseInt(args[1]);
+    String txt = args[2];
+    int seed = Integer.parseInt(args[3]);
+    System.out.println("FINALLY MADE A WORD SEARCH");
+    WordSearch os = new WordSearch(row, col, txt, seed);
     System.out.println(os);
-    WordSearch s = new WordSearch(20, 10, "Soccer.txt");
-    System.out.println(s);
-
-
+    //WordSearch s = new WordSearch(20, 10, "Soccer.txt");
+    //System.out.println(s);
 
   }
 }
