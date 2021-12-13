@@ -97,11 +97,11 @@ public class WordSearch{
     private void addAllWords(String fileName) {
       ArrayList<String> wordsToBeAdded = new ArrayList<String>();
        try{
-         File joe = new File(fileName);
-         Scanner input = new Scanner(joe);
+         File fn = new File(fileName);
+         Scanner input = new Scanner(fn);
          while (input.hasNextLine()){
-           String joemama = input.nextLine();
-           wordsToBeAdded.add(joemama);
+           String str = input.nextLine();
+           wordsToBeAdded.add(str);
          }
        } catch(FileNotFoundException e){
          System.out.println("Txt file doesn't exist");
@@ -113,7 +113,7 @@ public class WordSearch{
          int[] dir = {-1, 0, 1};
          int row, col, rowInc, colInc;
          boolean addedWord = false;
-         String joe = wordsToBeAdded.get(randgen.nextInt(wordsToBeAdded.size()));
+         String str = wordsToBeAdded.get(randgen.nextInt(wordsToBeAdded.size()));
          while (tries < 10 && !addedWord){
            // System.out.println(joe);
            rowInc = dir[randgen.nextInt(dir.length)];
@@ -124,14 +124,14 @@ public class WordSearch{
            // System.out.println(colInc);
            // System.out.println(row);
            // System.out.println(col);
-           if (addWord(row, col, joe, rowInc, colInc) == true){
-             addWord(row, col, joe, rowInc, colInc);
-             wordsAdded.add(joe);
+           if (addWord(row, col, str, rowInc, colInc) == true){
+             addWord(row, col, str, rowInc, colInc);
+             wordsAdded.add(str);
              addedWord = true;
            }
            tries++;
          }
-         wordsToBeAdded.remove(joe);
+         wordsToBeAdded.remove(str);
        }
     }
 
@@ -169,45 +169,45 @@ public class WordSearch{
      *separated by newlines.
      */
     public String toString(){
-      String joe = "";
+      String str = "";
       for (int i = 0; i < data.length; i++){
         for (int j = 0; j < data[0].length; j++){
-          joe += data[i][j] + " ";
+          str += data[i][j] + " ";
         }
-        joe += "\n";
+        str += "\n";
       }
-      joe += "\n" + "Words: ";
+      str += "\n" + "Words: " + wordsAdded;
       for (int i = 0; i < wordsAdded.size() - 1; i++){
-        joe += wordsAdded.get(i) + ", ";
+        str += wordsAdded.get(i) + ", ";
       }
       if (wordsAdded.size() > 0){
-        joe += wordsAdded.get(wordsAdded.size() - 1);
+        str += wordsAdded.get(wordsAdded.size() - 1);
       }
-      joe += "\n" + "Seed: " + this.seed;
-      return joe;
+      str += "\n" + "Seed: " + this.seed;
+      return str;
     }
 
     public String printedWords(){ //NEW
-      String joe = "";
+      String str = "";
       for (int i = 0; i < answer.length; i++){
         for (int j = 0; j < answer[0].length; j++){
           if (answer[i][j] != '_'){
-            joe += answer[i][j] + " ";
+            str += answer[i][j] + " ";
           } else {
-            joe += "  ";
+            str += "  ";
           }
         }
-        joe += "\n";
+        str += "\n";
       }
-      joe += "\n" + "Words: ";
+      str += "\n" + "Words: ";
       for (int i = 0; i < wordsAdded.size() - 1; i++){
-        joe += wordsAdded.get(i) + ", ";
+        str += wordsAdded.get(i) + ", ";
       }
       if (wordsAdded.size() > 0){
-        joe += wordsAdded.get(wordsAdded.size() - 1);
+        str += wordsAdded.get(wordsAdded.size() - 1);
       }
-      joe += "\n" + "Seed: " + this.seed;
-      return joe;
+      str += "\n" + "Seed: " + this.seed;
+      return str;
     }
 
 
@@ -224,7 +224,6 @@ public class WordSearch{
      *@return true when the word is added successfully. When the word doesn't fit,
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
-     */
     // public boolean addWordHorizontal(String word, int row, int col){
     //   int wordLength = word.length();
     //   if (wordLength > data[1].length - col){
@@ -242,6 +241,7 @@ public class WordSearch{
     //  }
     //   return true;
     // }
+    */
 
    /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from top to bottom, must fit on the WordGrid, and must
@@ -253,7 +253,7 @@ public class WordSearch{
      *@return true when the word is added successfully. When the word doesn't fit,
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
-     */
+
     // public boolean addWordVertical(String word, int row, int col){
     //   int wordLength = word.length();
     //   if (wordLength > data.length - row){
@@ -271,6 +271,7 @@ public class WordSearch{
     //   }
     //   return true;
     // }
+    */
 
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from top left towards the bottom right, it must fit on the board,
@@ -282,7 +283,6 @@ public class WordSearch{
      *@return true when the word is added successfully. When the word doesn't fit,
      *or there are overlapping letters that do not match, then false is returned
      *and the board is not modified.
-     */
     // public boolean addWordDiagonal(String word, int row, int col){
     //   int wordLength = word.length();
     //   if (data.length - row < wordLength || data[1].length - col < wordLength){
@@ -300,4 +300,5 @@ public class WordSearch{
     //   }
     //   return true;
     // }
+    */
 }
