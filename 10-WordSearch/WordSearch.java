@@ -13,8 +13,6 @@ public class WordSearch{
     private Random randgen;
     //all words that were successfully added get moved into wordsAdded.
     private ArrayList<String> wordsAdded;
-    //answer to the wordsearch puzzle
-    private char[][]answer;
 
 
 // CONSTRUCTORS
@@ -24,31 +22,28 @@ public class WordSearch{
      *@param rows is the starting height of the WordSearch
      *@param cols is the starting width of the WordSearch
      */
-    public WordSearch(int rows, int cols, String fileName){
+    public WordSearch(int rows, int cols, String fileName, int mode){
       this.wordsAdded = new ArrayList<String>();
       this.randgen = new Random();
       this.seed = randgen.nextInt();
       this.randgen = new Random(seed);
       this.data = new char[rows][cols];
-      this.answer = new char[rows][cols]; //new
       clear();
       addAllWords(fileName);
-      assignAnswer(); //new
-      jumbleUp(); //NEW
+      if (mode == 0){
+        jumbleUp();
+      }
     }
 
     /*New Constructors:  Both will read in the word text file, then run addAllWords().
      *Do not fill in random letters after.*/
-    public WordSearch(int rows, int cols, String fileName, int seed){
+    public WordSearch(int rows, int cols, String fileName, int mode, int seed){
       this.wordsAdded = new ArrayList<String>();
       this.seed = seed;
       this.randgen = new Random(seed);
       this.data = new char[rows][cols];
-      this.answer = new char[rows][cols]; //new
       clear();
       addAllWords(fileName);
-      assignAnswer(); //new
-      jumbleUp(); //NEW
     }
 
 
@@ -94,18 +89,25 @@ public class WordSearch{
 
     /*Attempt to add all of the words from the file of words list using the algorithm described above
      *Suggestion: read your file into an ArrayList of Strings. */
+    public static ArrayList<String> loadWordsFromFile(String fileName){
+    ArrayList<String>words = new ArrayList<String>();
+    try{
+      Scanner input = new Scanner(new File(fileName));
+      while(input.hasNextLine()){
+        String line = input.nextLine();
+        if(! line.equals("")){
+          words.add(line.toUpperCase());
+        }
+      }
+    }catch(FileNotFoundException e){
+      System.out.println(e);
+      System.exit(1);
+    }
+    return words;
+  }
+
     private void addAllWords(String fileName) {
-      ArrayList<String> wordsToBeAdded = new ArrayList<String>();
-       try{
-         File fn = new File(fileName);
-         Scanner input = new Scanner(fn);
-         while (input.hasNextLine()){
-           String str = input.nextLine();
-           wordsToBeAdded.add(str);
-         }
-       } catch(FileNotFoundException e){
-         System.out.println("Txt file doesn't exist");
-       }
+      ArrayList<String> wordsToBeAdded = loadWordsFromFile(fileName);
        // System.out.println(wordsToBeAdded);
        int len = wordsToBeAdded.size();
        for (int i = 0; i < len; i++){
@@ -120,10 +122,6 @@ public class WordSearch{
            colInc = dir[randgen.nextInt(dir.length)];
            row = randgen.nextInt(data.length);
            col = randgen.nextInt(data[0].length);
-           // System.out.println(rowInc);
-           // System.out.println(colInc);
-           // System.out.println(row);
-           // System.out.println(col);
            if (addWord(row, col, str, rowInc, colInc) == true){
              addWord(row, col, str, rowInc, colInc);
              wordsAdded.add(str);
@@ -135,15 +133,7 @@ public class WordSearch{
        }
     }
 
-    private void assignAnswer(){ //NEW
-      for (int i = 0; i < data.length; i++){
-        for (int j = 0; j < data[0].length; j++){
-          answer[i][j] = data[i][j];
-        }
-      }
-    }
-
-    private void jumbleUp(){ //NEW
+    private void jumbleUp(){
       for (int i = 0; i < data.length; i++){
         for (int j = 0; j < data[0].length; j++){
           if (data[i][j] == '_'){
@@ -186,31 +176,6 @@ public class WordSearch{
       str += "\n" + "Seed: " + this.seed;
       return str;
     }
-
-    public String printedWords(){ //NEW
-      String str = "";
-      for (int i = 0; i < answer.length; i++){
-        for (int j = 0; j < answer[0].length; j++){
-          if (answer[i][j] != '_'){
-            str += answer[i][j] + " ";
-          } else {
-            str += "  ";
-          }
-        }
-        str += "\n";
-      }
-      str += "\n" + "Words: ";
-      for (int i = 0; i < wordsAdded.size() - 1; i++){
-        str += wordsAdded.get(i) + ", ";
-      }
-      if (wordsAdded.size() > 0){
-        str += wordsAdded.get(wordsAdded.size() - 1);
-      }
-      str += "\n" + "Seed: " + this.seed;
-      return str;
-    }
-
-
 
 // OLD METHODS
 

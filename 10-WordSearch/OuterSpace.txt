@@ -10,3 +10,4 @@ PLUTO
 SUN
 COMET
 STARS
+rutabaga

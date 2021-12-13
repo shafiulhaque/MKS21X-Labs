@@ -49,14 +49,12 @@ public class Tester{
     int col = Integer.parseInt(args[1]);
     String txt = args[2];
     if (args.length < 4){
-      WordSearch os = new WordSearch(row, col, txt);
+      WordSearch os = new WordSearch(row, col, txt, mode);
       System.out.println(os);
-      System.out.println(os.printedWords());
     } else{
       int seed = Integer.parseInt(args[3]);
-      WordSearch os = new WordSearch(row, col, txt, seed);
+      WordSearch os = new WordSearch(row, col, txt, mode, seed);
       System.out.println(os);
-      System.out.println(os.printedWords());
     }
     //WordSearch s = new WordSearch(20, 10, "Soccer.txt");
     //System.out.println(s);
