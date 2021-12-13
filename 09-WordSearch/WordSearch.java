@@ -176,7 +176,7 @@ public class WordSearch{
         }
         str += "\n";
       }
-      str += "\n" + "Words: " + wordsAdded;
+      str += "\n" + "Words: ";
       for (int i = 0; i < wordsAdded.size() - 1; i++){
         str += wordsAdded.get(i) + ", ";
       }
