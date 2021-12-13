@@ -44,6 +44,9 @@ public class WordSearch{
       this.data = new char[rows][cols];
       clear();
       addAllWords(fileName);
+      if (mode == 0){
+        jumbleUp();
+      }
     }
 
 

@@ -48,11 +48,12 @@ public class Tester{
     int row = Integer.parseInt(args[0]);
     int col = Integer.parseInt(args[1]);
     String txt = args[2];
-    if (args.length < 4){
+    int mode = Integer.parseInt(args[3]);
+    if (args.length < 5){
       WordSearch os = new WordSearch(row, col, txt, mode);
       System.out.println(os);
     } else{
-      int seed = Integer.parseInt(args[3]);
+      int seed = Integer.parseInt(args[4]);
       WordSearch os = new WordSearch(row, col, txt, mode, seed);
       System.out.println(os);
     }
