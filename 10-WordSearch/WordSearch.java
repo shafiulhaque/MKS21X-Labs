@@ -123,20 +123,18 @@ public class WordSearch{
          int[] dir = {-1, 0, 1};
          int row, col, rowInc, colInc;
          boolean addedWord = false;
-         String str = wordsToBeAdded.get(randgen.nextInt(wordsToBeAdded.size()));
+         String str = wordsToBeAdded.remove(randgen.nextInt(wordsToBeAdded.size()));
          while (tries < 10 && !addedWord){
            // System.out.println(joe);
            rowInc = dir[randgen.nextInt(dir.length)];
            colInc = dir[randgen.nextInt(dir.length)];
            row = randgen.nextInt(data.length);
            col = randgen.nextInt(data[0].length);
-           if (addWord(str, row, col, rowInc, colInc) == true){
-             wordsAdded.add(str);
+           if (addWord(str, row, col, rowInc, colInc)){
              addedWord = true;
            }
            tries++;
          }
-         wordsToBeAdded.remove(str);
        }
     }
 
