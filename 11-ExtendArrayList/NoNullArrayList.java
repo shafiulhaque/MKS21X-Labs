@@ -10,13 +10,24 @@ public class NoNullArrayList<T> extends ArrayList<T> {
 
   }
 
-//  public T set(int index, T element){
+  public T set(int index, T element){
+    if (element == null){
+      throw new IllegalArgumentException("unable to set a null");
+    }
+    super.set(index, element);
+    }
 
-//  }
-//  public T add(T element){
-
-//  }
-//  public T add(int index, T element){
-
-//  }
+  public T add(T element){
+    if (element == null){
+      throw new IllegalArgumentException("unable to add a null");
+    }
+    super.add(element);
+  }
+  
+  public T add(int index, T element){
+    if (element == null){
+      throw new IllegalArgumentException("unable to add a null");
+    }
+    super.add(index, element);
+  }
 }
