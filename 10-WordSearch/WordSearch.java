@@ -124,7 +124,7 @@ public class WordSearch{
          int row, col, rowInc, colInc;
          boolean addedWord = false;
          String str = wordsToBeAdded.remove(randgen.nextInt(wordsToBeAdded.size()));
-         while (tries < 100 && !addedWord){
+         while (tries < 1000 && !addedWord){
            // System.out.println(joe);
            rowInc = dir[randgen.nextInt(dir.length)];
            colInc = dir[randgen.nextInt(dir.length)];
