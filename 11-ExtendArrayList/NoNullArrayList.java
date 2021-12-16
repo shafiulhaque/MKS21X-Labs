@@ -7,24 +7,24 @@ public class NoNullArrayList<T> extends ArrayList<T> {
   }
 
   public NoNullArrayList(T startingCapacity){
-
+    super();
   }
 
   public T set(int index, T element){
     if (element == null){
       throw new IllegalArgumentException("unable to set a null");
     }
-    super.set(index, element);
+    return super.set(index, element);
     }
 
-  public T add(T element){
+  public boolean add(T element){
     if (element == null){
       throw new IllegalArgumentException("unable to add a null");
     }
-    super.add(element);
+    return super.add(element);
   }
-  
-  public T add(int index, T element){
+
+  public void add(int index, T element){
     if (element == null){
       throw new IllegalArgumentException("unable to add a null");
     }
