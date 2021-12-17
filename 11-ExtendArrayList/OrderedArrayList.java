@@ -30,8 +30,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public void add(int index, T value){
-    int ind = whereToPlace(value);
-    super.add(ind, value);
+    super.add(value);
   }
 
   public T set(int index, T value){
