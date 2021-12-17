@@ -13,7 +13,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   private int whereToPlace(T value){
       /*return the index that the value should be placed
       when inserting into the OrderedArrayList .*/
-      int index = super.size()-1;
+      int index = super.size();
       for (int i = 0; i < super.size(); i++){
         if (value.compareTo(super.get(i)) < 0){
           index = i;
