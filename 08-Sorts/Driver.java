@@ -5,7 +5,7 @@ import java.util.*;
 
       int[] randish = new int[Integer.parseInt(artie[0])];
       for(int i = 0 ; i < randish.length; i++){
-        randish[i] =(int)(Math.random()*10000);
+        randish[i] =(int)(Math.random()*1000);
       }
 
       if(artie[1].equals("selection")){
