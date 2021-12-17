@@ -6,8 +6,8 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     super();
   }
 
-  public NoNullArrayList(T startingCapacity){
-    super();
+  public NoNullArrayList(int startingCapacity){
+    super(startingCapacity);
   }
 
   public T set(int index, T element){
