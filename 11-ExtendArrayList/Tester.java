@@ -3,6 +3,7 @@ import java.io.*;
 
 public class Tester {
    public static void main(String[] args) {
+     System.out.println("NO NULL ARRAY LIST TEST CASES");
      try {
        NoNullArrayList<String> nonullreg = new NoNullArrayList<String>();
        nonullreg.add("christmas");
@@ -21,6 +22,7 @@ public class Tester {
      catch (IllegalArgumentException e){
        System.out.println(e);
      }
+
      try {
        NoNullArrayList<Integer> nonullint = new NoNullArrayList<Integer>(10);
        nonullint.add(4);
@@ -38,8 +40,29 @@ public class Tester {
      } catch (IllegalArgumentException e){
        System.out.println(e);
      }
+     System.out.println();
 
-     
+
+     System.out.println("ORDERED ARRAY LIST TEST CASES");
+     try {
+       OrderedArrayList<String> ordarstr = new OrderedArrayList<String>();
+       ordarstr.add("christmas");
+       System.out.println(ordarstr);
+       ordarstr.add(3, "tree");
+       System.out.println(ordarstr);
+       ordarstr.add("jolly");
+       System.out.println(ordarstr);
+       ordarstr.add(-1, "merry");
+       System.out.println(ordarstr);
+       ordarstr.add(22, "reindeer");
+       System.out.println(ordarstr);
+
+
+     } catch (IllegalArgumentException e){
+       System.out.println(e);
+     }
+
+
 
      }
    }
