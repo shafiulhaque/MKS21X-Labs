@@ -54,6 +54,8 @@ public class Tester {
        System.out.println(ordarstr);
        ordarstr.add(-1, "merry");
        System.out.println(ordarstr);
+       ordarstr.add(-1, null);
+       System.out.println(ordarstr);
        ordarstr.add(22, "reindeer");
        System.out.println(ordarstr);
 
