@@ -4,6 +4,9 @@ import java.io.*;
 public class Tester {
    public static void main(String[] args) {
      System.out.println("NO NULL ARRAY LIST TEST CASES");
+     // ArrayList<String> java = new ArrayList<String>();
+     // java.add(42, "joe");
+     // System.out.println(java);
      try {
        NoNullArrayList<String> nonullreg = new NoNullArrayList<String>();
        nonullreg.add("christmas");
@@ -64,6 +67,24 @@ public class Tester {
        System.out.println(e);
      }
 
+     try {
+       OrderedArrayList<Integer> yuhint = new OrderedArrayList<Integer>();
+       yuhint.add(4);
+       System.out.println(yuhint);
+       yuhint.add(0,33);
+       System.out.println(yuhint);
+       yuhint.add(42);
+       System.out.println(yuhint);
+       yuhint.add(-11);
+       System.out.println(yuhint);
+       yuhint.set(1, -323);
+       System.out.println(yuhint);
+       yuhint.set(0, null);
+       System.out.println(yuhint);
+     } catch (IllegalArgumentException e){
+       System.out.println(e);
+     }
+     System.out.println();
 
 
      }
