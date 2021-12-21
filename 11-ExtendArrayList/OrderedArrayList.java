@@ -33,7 +33,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   @Override
   public void add(int index, T value){
-    super.add(value);
+    add(value);
   }
 
   @Override
