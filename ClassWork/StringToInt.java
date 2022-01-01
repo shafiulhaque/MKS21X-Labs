@@ -1,8 +1,14 @@
 public class StringToInt{
+  //return the value of Integer.parseInt(s) but do it yourself!
+  //Do not use any built in parse methods.
   public static int stringToInt(String s){
-     //return the value of Integer.parseInt(s) but do it yourself!
-     //Do not use any built in parse methods.
-     return 0;
+    int stringInt = 0;
+     for (int i = 0; i < s.length(); i++){
+       char cr = s.charAt(i);
+       stringInt *= 10;
+       stringInt += valueOfDigit(cr);
+     }
+     return stringInt;
    }
    public static int valueOfDigit(char c){
      return c - '0';
