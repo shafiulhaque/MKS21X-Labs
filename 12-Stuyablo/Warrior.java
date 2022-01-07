@@ -1,5 +1,5 @@
 public class Warrior extends Adventurer {
-    private int  rage;
+    private int rage;
     private String warcry;
 
     public Warrior(){
