@@ -29,13 +29,16 @@ public class Wizard extends Adventurer {
 
   public void specialAttack(Damageable other){
      if(getMana() >= 5){
-          int damage = (int)(Math.random()*16)+1;
+       double number = Math.random();
+       int multiplier = 1;
+       if (number > 0.5) multiplier *=2;
+          int damage = (int)(Math.random()*16*multiplier)+1;
           other.applyDamage(damage);
-          System.out.println(this + " unleashes his wrath upon "
+          System.out.println(this + " unleashes his magical powers upon "
            + other + " for " + damage + " damage! "+warcry);
           setMana(getMana() - 5);
     }else{
-        System.out.println("Not enough rage! ");
+        System.out.println("Not enough mana! (Get stronger my guy)");
         attack(other);
     }
   }
