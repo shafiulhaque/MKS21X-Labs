@@ -56,6 +56,44 @@ public class TerminalCodes{
     return ("\u001b[" + c1 + ";" + c2 + ";" + c3 + "m"+text+"\u001b[0m");
   }
 
+  public static void makeRow(){
+    for(int i = 1; i < 80; i++){
+      go(1,i);
+      int nou = BLACK+(int)(Math.random()*6)+1;
+      System.out.println(colorize(" ", nou+BACKGROUND));
+    }
+    for(int i = 1; i < 31; i++){
+      go(i,1);
+      int nou = BLACK+(int)(Math.random()*6)+1;
+      System.out.println(colorize(" ", nou+BACKGROUND));
+    }
+    for(int i = 1; i < 81; i++){
+      go(30,i);
+      int nou = BLACK+(int)(Math.random()*6)+1;
+      System.out.println(colorize(" ", nou+BACKGROUND));
+    }
+    for(int i = 1; i < 31; i++){
+      go(i,80);
+      int nou = BLACK+(int)(Math.random()*6)+1;
+      System.out.println(colorize(" ", nou+BACKGROUND));
+    }
+  }
+
+  public static void inputNo(int[] no){
+        for(int i = 0; i < 4; i++){
+          int main;
+          go(2, 2+19*i);
+          if(no[i] > 75){
+            main = GREEN;
+          } else if(no[i] < 25){
+            main = RED;
+          } else {
+            main = WHITE;
+          }
+          System.out.println(colorize("" + no[i], BOLD, main));
+        }
+  }
+
 
   //Tested and working in:
   //git-bash (windows 10),    wsl (windows 10+11),   powershell windows 11
@@ -67,43 +105,11 @@ public class TerminalCodes{
     for(int i = 0; i < 4; i++){
       no[i] = (int)(Math.random()*99)+1;
     }
+    inputNo(no);
+    makeRow();
 
-    for(int i = 0; i < 4; i++){
-      int main;
-      go(2, 2+19*i);
-      if(no[i] > 75){
-        main = GREEN;
-      } else if(no[i] < 25){
-        main = RED;
-      } else {
-        main = WHITE;
-      }
-      System.out.println(colorize("" + no[i], BOLD, main));
-    }
-
-     for(int i = 1; i < 80; i++){
-       go(1,i);
-       int nou = BLACK+(int)(Math.random()*6)+1;
-       System.out.println(colorize(" ", nou+BACKGROUND));
-     }
-     for(int i = 1; i < 31; i++){
-       go(i,1);
-       int nou = BLACK+(int)(Math.random()*6)+1;
-       System.out.println(colorize(" ", nou+BACKGROUND));
-     }
-     for(int i = 1; i < 81; i++){
-       go(30,i);
-       int nou = BLACK+(int)(Math.random()*6)+1;
-       System.out.println(colorize(" ", nou+BACKGROUND));
-     }
-     for(int i = 1; i < 31; i++){
-       go(i,80);
-       int nou = BLACK+(int)(Math.random()*6)+1;
-       System.out.println(colorize(" ", nou+BACKGROUND));
-     }
      go(31,1);
      reset();
      showCursor();
-
   }
 }
