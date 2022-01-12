@@ -1,3 +1,4 @@
+import java.util.*;
 public class TerminalCodes{
   /*Base colors*/
   public static final int BLACK = 30;
@@ -80,15 +81,29 @@ public class TerminalCodes{
       System.out.println(colorize("" + no[i], BOLD, main));
     }
 
-     for(int i = 1; i < 81; i++){
+     for(int i = 1; i < 80; i++){
        go(1,i);
-       System.out.println(colorize(" ", BLUE+BACKGROUND));
+       int nou = BLACK+(int)(Math.random()*6)+1;
+       System.out.println(colorize(" ", nou+BACKGROUND));
      }
-     for(int i = 1; i < 30; i++){
+     for(int i = 1; i < 31; i++){
        go(i,1);
-       System.out.println(colorize(" ", BLUE+BACKGROUND));
+       int nou = BLACK+(int)(Math.random()*6)+1;
+       System.out.println(colorize(" ", nou+BACKGROUND));
      }
-     go(31,31);
+     for(int i = 1; i < 81; i++){
+       go(30,i);
+       int nou = BLACK+(int)(Math.random()*6)+1;
+       System.out.println(colorize(" ", nou+BACKGROUND));
+     }
+     for(int i = 1; i < 31; i++){
+       go(i,80);
+       int nou = BLACK+(int)(Math.random()*6)+1;
+       System.out.println(colorize(" ", nou+BACKGROUND));
+     }
+     go(31,1);
+     reset();
+     showCursor();
 
   }
 }
