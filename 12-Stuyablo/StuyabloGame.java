@@ -12,22 +12,51 @@ public class StuyabloGame{
   //Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    for(int i = 0; i < party.size(); i++){
+      int main;
+      Text.go(startRow, 2+19*i+1);
+      System.out.println(Text.colorize(party.get(i).getName(), Text.BOLD));
+
+      Text.go(3, 2+19*i+1);
+      int no = party.get(i).getHP();
+      if(no > 75){
+        main = Text.GREEN;
+      } else if(no < 25){
+        main = Text.RED;
+      } else {
+        main = Text.WHITE;
+      }
+      System.out.println(Text.colorize("HP:" + no, Text.BOLD, main));
+    }
   }
 
   //Display a line of text starting at column 2 of the specified row.
   public static void drawText(String s,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Text.go(startRow, 1);
+    System.out.println(Text.colorize(s, Text.BOLD));
   }
 
   public static void drawScreen(){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    for(int i = 1; i < 80; i++){
+      Text.go(1,i);
+      int nou = Text.BLACK+(int)(Math.random()*6)+1;
+      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
+    }
+    for(int i = 1; i < 31; i++){
+      Text.go(i,1);
+      int nou = Text.BLACK+(int)(Math.random()*6)+1;
+      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
+    }
+    for(int i = 1; i < 81; i++){
+      Text.go(30,i);
+      int nou = Text.BLACK+(int)(Math.random()*6)+1;
+      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
+    }
+    for(int i = 1; i < 31; i++){
+      Text.go(i,80);
+      int nou = Text.BLACK+(int)(Math.random()*6)+1;
+      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
+    }
   }
 
 
@@ -41,16 +70,20 @@ public class StuyabloGame{
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Adventurer enemy = new Wizard("Frank");
+    enemies.add(enemy);
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Adventurer adv1 = new Wizard("Alvin");
+    Adventurer adv2 = new Wizard("Taee");
+    Adventurer adv3 = new Wizard("Frank");
+    party.add(adv1);
+    party.add(adv2);
+    party.add(adv3);
+
+
 
     //Main loop
     boolean partyTurn = false;
@@ -70,14 +103,10 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          party.get(whichPlayer).attack(enemies.get(0));
         }
         else if(input.equals("special")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          party.get(whichPlayer).specialAttack(enemies.get(0));
         }
         whichPlayer++;
 
@@ -94,10 +123,10 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
+          drawText("Enter command for "+enemies.get(0)+
+                   ": attack/special/quit",HEIGHT/2);
           //Enemy action choices go here!
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          enemies.get(0).attack(party.get(whichPlayer));
         }
 
         //after enemy goes, change back to player's turn.
