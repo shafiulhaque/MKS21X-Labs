@@ -15,29 +15,31 @@ public class Warrior extends Adventurer {
       super(name,30+(int)(Math.random()*10));
       setWarcry(warcry);
       setRage(rage);
+      setmaxHP(100);
+      this.rageMax = 20;
     }
 
     //warrior methods
 
-    public void attack(Damageable other){
+    public String attack(Damageable other){
     	  int damage = (int)(Math.random()*10)+1;
   	    other.applyDamage(damage);
   	    setRage(getRage() + 1);
-  	    System.out.println(this +
+  	    return Text.colorize(this +
             " attacked " + other + " for " +
-            damage + " damage!");
+            damage + " damage!",Text.BOLD, Text.WHITE);
     }
 
-    public void specialAttack(Damageable other){
+    public String specialAttack(Damageable other){
 	     if(getRage() >= 10){
   	        int damage = (int)(Math.random()*20)+1;
             other.applyDamage(damage);
-            System.out.println(this + " unleashes his fury upon "
-             + other + " for " + damage + " damage! "+warcry);
             setRage(getRage() - 10);
+            return Text.colorize(this + " unleashes his fury upon "
+             + other + " for " + damage + " damage! "+warcry,Text.BOLD, Text.WHITE);
 	    }else{
-			    System.out.println("Not enough rage! ");
-          attack(other);
+			   // System.out.println("Not enough rage! ");
+          return attack(other);
 	    }
     }
 

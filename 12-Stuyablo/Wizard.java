@@ -12,37 +12,37 @@ public class Wizard extends Adventurer {
   }
 
   public Wizard(String name, String warcry, int mana){
-    super(name, 50+(int)(Math.random()*50));
+    super(name, 50+(int)(Math.random()*30));
     setWarcry(warcry);
     setMana(mana);
-    setmaxHP(100);
+    setmaxHP(80);
     this.manaMax = 20;
   }
 
   // wizard Methods
 
-  public void attack(Damageable other){
+  public String attack(Damageable other){
       int damage = (int)(Math.random()*8)+1;
       other.applyDamage(damage);
       setMana(getMana() + 1);
-      System.out.println(Text.colorize(this +
+      return Text.colorize(this +
           " attacked " + other + " for " +
-          damage + " damage!", Text.BOLD, Text.WHITE));
+          damage + " damage!", Text.BOLD, Text.WHITE);
   }
 
-  public void specialAttack(Damageable other){
+  public String specialAttack(Damageable other){
      if(getMana() >= 5){
        double number = Math.random();
        int multiplier = 1;
        if (number > 0.5) multiplier *=2;
           int damage = (int)(Math.random()*16*multiplier)+1;
           other.applyDamage(damage);
-          System.out.println(Text.colorize(this + " unleashes his magical powers upon "
-           + other + " for " + damage + " damage! "+warcry, Text.BOLD, Text.WHITE));
           setMana(getMana() - 5);
+          return Text.colorize(this + " unleashes his magical powers upon "
+           + other + " for " + damage + " damage! "+warcry, Text.BOLD, Text.WHITE);
     }else{
-        System.out.println(Text.colorize("Not enough mana! (Get stronger my guy)", Text.BOLD, Text.WHITE));
-        attack(other);
+      return attack(other);
+  //    return Text.colorize("Not enough mana! " + this + " attacked for " + damage + "damage. (Get stronger my guy)", Text.BOLD, Text.WHITE);
     }
   }
 

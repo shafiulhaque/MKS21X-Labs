@@ -18,18 +18,19 @@ public class StuyabloGame{
       System.out.println(Text.colorize(party.get(i).getName(), Text.BOLD));
 
       Text.go(startRow+1, 2+19*i+1);
-      System.out.println(Text.colorize("Mana:" + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax(), Text.BOLD));
+      System.out.println(Text.colorize(party.get(i).getSpecialName() + ":" + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax(), Text.BOLD));
 
       Text.go(startRow+2, 2+19*i+1);
       int no = party.get(i).getHP();
-      if(no > 75){
+      int no1 = party.get(i).getmaxHP();
+      if(no >= no1*3/4){
         main = Text.GREEN;
-      } else if(no < 25){
+      } else if(no <= no1/4){
         main = Text.RED;
       } else {
         main = Text.WHITE;
       }
-      System.out.println(Text.colorize("HP:" + no + "/" + party.get(i).getmaxHP(), Text.BOLD, main));
+      System.out.println(Text.colorize("HP:", Text.BOLD, Text.WHITE) + Text.colorize(no + "/" + party.get(i).getmaxHP(), Text.BOLD, main));
     }
   }
 
@@ -40,7 +41,7 @@ public class StuyabloGame{
   }
 
   public static void drawScreen(){
-    for(int i = 1; i < 80; i++){
+    for(int i = 2; i < 79; i++){
       Text.go(1,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
       Text.go(5,i);
@@ -77,12 +78,10 @@ public class StuyabloGame{
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer adv1 = new Wizard("Alvin");
     Adventurer adv2 = new Wizard("Taee");
-    Adventurer adv3 = new Wizard("Craig");
-    Adventurer adv4 = new Wizard("Frank");
+    Adventurer adv3 = new Warrior("Craig");
     party.add(adv1);
     party.add(adv2);
     party.add(adv3);
-    party.add(adv4);
 
 
     //Main loop
@@ -102,15 +101,16 @@ public class StuyabloGame{
       //display event based on last turn's input
       if(partyTurn){
         //Process user input:
-        if(input.equals("attack")){
+        if(input.equals("attack") || input.equals("")){
           Text.clear();
-          Text.go(HEIGHT/2+5,3);
-          party.get(whichPlayer).attack(enemies.get(0));
+          Text.go(HEIGHT/2-5,3);
+          System.out.println(party.get(whichPlayer).attack(enemies.get(0)));
           Text.go(32,2);
         }
         else if(input.equals("special")){
-          Text.go(HEIGHT/2+5,3);
-          party.get(whichPlayer).specialAttack(enemies.get(0));
+          Text.clear();
+          Text.go(HEIGHT/2-5,3);
+          System.out.println(party.get(whichPlayer).specialAttack(enemies.get(0)));
           Text.go(32,2);
         }
         whichPlayer++;
@@ -129,9 +129,9 @@ public class StuyabloGame{
           drawText("Enter command for "+enemies.get(0)+
                    ": attack/special/quit",HEIGHT/2);
           //Enemy action choices go here!
-          Text.go(HEIGHT/2+5,3);
-          int index = (int)(Math.random()*4);
-          enemies.get(0).attack(party.get(index));
+          Text.go(HEIGHT/2-5,3);
+          int index = (int)(Math.random()*party.size());
+          System.out.println(enemies.get(0).attack(party.get(index)));
           Text.go(32,2);
         }
 
