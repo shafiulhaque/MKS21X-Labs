@@ -17,7 +17,7 @@ public class StuyabloGame{
       Text.go(startRow, 2+19*i+1);
       System.out.println(Text.colorize(party.get(i).getName(), Text.BOLD));
 
-      Text.go(3, 2+19*i+1);
+      Text.go(startRow+1, 2+19*i+1);
       int no = party.get(i).getHP();
       if(no > 75){
         main = Text.GREEN;
@@ -26,14 +26,14 @@ public class StuyabloGame{
       } else {
         main = Text.WHITE;
       }
-      System.out.println(Text.colorize("HP:" + no, Text.BOLD, main));
+      System.out.println(Text.colorize("HP:" + no + "/100", Text.BOLD, main));
     }
   }
 
   //Display a line of text starting at column 2 of the specified row.
   public static void drawText(String s,int startRow){
-    Text.go(startRow, 1);
-    System.out.println(Text.colorize(s, Text.BOLD));
+    Text.go(startRow, 3);
+    System.out.println(Text.colorize(s, Text.BOLD, Text.WHITE));
   }
 
   public static void drawScreen(){
@@ -78,10 +78,12 @@ public class StuyabloGame{
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer adv1 = new Wizard("Alvin");
     Adventurer adv2 = new Wizard("Taee");
-    Adventurer adv3 = new Wizard("Frank");
+    Adventurer adv3 = new Wizard("Craig");
+    Adventurer adv4 = new Wizard("Mr. K");
     party.add(adv1);
     party.add(adv2);
     party.add(adv3);
+    party.add(adv4);
 
 
 
@@ -103,20 +105,22 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
+          Text.go(HEIGHT/2+5,3);
           party.get(whichPlayer).attack(enemies.get(0));
+          Text.go(32,2);
         }
         else if(input.equals("special")){
+          Text.go(HEIGHT/2+5,3);
           party.get(whichPlayer).specialAttack(enemies.get(0));
+          Text.go(32,2);
         }
         whichPlayer++;
-
-
 
         if(whichPlayer < party.size()){
           drawText("Enter command for "+party.get(whichPlayer)+
                    ": attack/special/quit",HEIGHT/2);
         }else{
-          drawText("press enter to see monster's turn",HEIGHT/2);
+          drawText("Press enter to see monster's turn",HEIGHT/2);
           partyTurn = false;
         }
       }else{
@@ -126,7 +130,10 @@ public class StuyabloGame{
           drawText("Enter command for "+enemies.get(0)+
                    ": attack/special/quit",HEIGHT/2);
           //Enemy action choices go here!
-          enemies.get(0).attack(party.get(whichPlayer));
+          Text.go(HEIGHT/2+5,3);
+          int index = (int)(Math.random()*3)+1;
+          enemies.get(0).attack(party.get(index));
+          Text.go(32,2);
         }
 
         //after enemy goes, change back to player's turn.

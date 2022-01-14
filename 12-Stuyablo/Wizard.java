@@ -7,11 +7,11 @@ public class Wizard extends Adventurer {
   }
 
   public Wizard(String name){
-     this(name, "FIREBALLL!!!!", 22);
+     this(name, "FIREBALLL!!!!", 80);
   }
 
   public Wizard(String name, String warcry, int mana){
-    super(name, 15+(int)(Math.random()*10));
+    super(name, 50+(int)(Math.random()*50));
     setWarcry(warcry);
     setMana(mana);
   }
@@ -22,9 +22,9 @@ public class Wizard extends Adventurer {
       int damage = (int)(Math.random()*8)+1;
       other.applyDamage(damage);
       setMana(getMana() + 1);
-      System.out.println(this +
+      System.out.println(Text.colorize(this +
           " attacked " + other + " for " +
-          damage + " damage!");
+          damage + " damage!", Text.BOLD, Text.WHITE));
   }
 
   public void specialAttack(Damageable other){
@@ -34,11 +34,11 @@ public class Wizard extends Adventurer {
        if (number > 0.5) multiplier *=2;
           int damage = (int)(Math.random()*16*multiplier)+1;
           other.applyDamage(damage);
-          System.out.println(this + " unleashes his magical powers upon "
-           + other + " for " + damage + " damage! "+warcry);
+          System.out.println(Text.colorize(this + " unleashes his magical powers upon "
+           + other + " for " + damage + " damage! "+warcry, Text.BOLD, Text.WHITE));
           setMana(getMana() - 5);
     }else{
-        System.out.println("Not enough mana! (Get stronger my guy)");
+        System.out.println(Text.colorize("Not enough mana! (Get stronger my guy)", Text.BOLD, Text.WHITE));
         attack(other);
     }
   }
