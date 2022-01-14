@@ -39,23 +39,19 @@ public class StuyabloGame{
   public static void drawScreen(){
     for(int i = 1; i < 80; i++){
       Text.go(1,i);
-      int nou = Text.BLACK+(int)(Math.random()*6)+1;
-      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
+      System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
+      Text.go(4,i);
+      System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
+      Text.go(24,i);
+      System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
+      Text.go(30,i);
+      System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
     }
     for(int i = 1; i < 31; i++){
       Text.go(i,1);
-      int nou = Text.BLACK+(int)(Math.random()*6)+1;
-      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
-    }
-    for(int i = 1; i < 81; i++){
-      Text.go(30,i);
-      int nou = Text.BLACK+(int)(Math.random()*6)+1;
-      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
-    }
-    for(int i = 1; i < 31; i++){
+      System.out.println(Text.colorize(" ", Text.BLACK+Text.BACKGROUND));
       Text.go(i,80);
-      int nou = Text.BLACK+(int)(Math.random()*6)+1;
-      System.out.println(Text.colorize(" ", nou+Text.BACKGROUND));
+      System.out.println(Text.colorize(" ", Text.BLACK+Text.BACKGROUND));
     }
   }
 
