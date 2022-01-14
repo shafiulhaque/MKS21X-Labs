@@ -70,7 +70,7 @@ public class StuyabloGame{
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
     ArrayList<Adventurer>enemies = new ArrayList<>();
-    Adventurer enemy = new Wizard("Frank");
+    Adventurer enemy = new Wizard("Mr. K");
     enemies.add(enemy);
 
     //Adventurers you control:
@@ -79,12 +79,11 @@ public class StuyabloGame{
     Adventurer adv1 = new Wizard("Alvin");
     Adventurer adv2 = new Wizard("Taee");
     Adventurer adv3 = new Wizard("Craig");
-    Adventurer adv4 = new Wizard("Mr. K");
+    Adventurer adv4 = new Wizard("Frank");
     party.add(adv1);
     party.add(adv2);
     party.add(adv3);
     party.add(adv4);
-
 
 
     //Main loop
