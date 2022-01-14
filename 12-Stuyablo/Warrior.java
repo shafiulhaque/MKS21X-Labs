@@ -1,6 +1,7 @@
 public class Warrior extends Adventurer {
     private int rage;
     private String warcry;
+    private int rageMax;
 
     public Warrior(){
 	     this("Magnus");
@@ -53,6 +54,17 @@ public class Warrior extends Adventurer {
 
     public void setWarcry(String warcry){
 	     this.warcry = warcry;
+    }
+
+    public String getSpecialName(){
+            return "Rage";
+          }
+
+    public int getSpecialMax(){
+            return rageMax;
+    }
+    public int getSpecial(){
+            return rage;
     }
 
 

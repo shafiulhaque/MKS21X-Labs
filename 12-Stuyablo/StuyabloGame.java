@@ -18,6 +18,9 @@ public class StuyabloGame{
       System.out.println(Text.colorize(party.get(i).getName(), Text.BOLD));
 
       Text.go(startRow+1, 2+19*i+1);
+      System.out.println(Text.colorize("Mana:" + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax(), Text.BOLD));
+
+      Text.go(startRow+2, 2+19*i+1);
       int no = party.get(i).getHP();
       if(no > 75){
         main = Text.GREEN;
@@ -26,7 +29,7 @@ public class StuyabloGame{
       } else {
         main = Text.WHITE;
       }
-      System.out.println(Text.colorize("HP:" + no + "/100", Text.BOLD, main));
+      System.out.println(Text.colorize("HP:" + no + "/" + party.get(i).getmaxHP(), Text.BOLD, main));
     }
   }
 
@@ -40,7 +43,7 @@ public class StuyabloGame{
     for(int i = 1; i < 80; i++){
       Text.go(1,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
-      Text.go(4,i);
+      Text.go(5,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
       Text.go(24,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
@@ -100,6 +103,7 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
+          Text.clear();
           Text.go(HEIGHT/2+5,3);
           party.get(whichPlayer).attack(enemies.get(0));
           Text.go(32,2);
@@ -126,7 +130,7 @@ public class StuyabloGame{
                    ": attack/special/quit",HEIGHT/2);
           //Enemy action choices go here!
           Text.go(HEIGHT/2+5,3);
-          int index = (int)(Math.random()*3)+1;
+          int index = (int)(Math.random()*4);
           enemies.get(0).attack(party.get(index));
           Text.go(32,2);
         }
@@ -145,6 +149,7 @@ public class StuyabloGame{
       //display current state of all Adventurers
       drawParty(party,2);
       drawParty(enemies,HEIGHT-5);
+      drawScreen();
 
       //Draw the prompt
       Text.reset();
