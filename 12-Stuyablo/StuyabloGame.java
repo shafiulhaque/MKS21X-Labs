@@ -107,13 +107,11 @@ public class StuyabloGame{
         Text.clear();
         //Process user input:
         if(input.equals("attack") || input.equals("")){
-          Text.clear();
           Text.go(HEIGHT/2-5,3);
           System.out.println(party.get(whichPlayer).attack(enemies.get(0)));
           Text.go(32,2);
         }
         else if(input.equals("special")){
-          Text.clear();
           Text.go(HEIGHT/2-5,3);
           System.out.println(party.get(whichPlayer).specialAttack(enemies.get(0)));
           Text.go(32,2);
