@@ -41,12 +41,14 @@ public class StuyabloGame{
   }
 
   public static void drawScreen(){
-    for(int i = 2; i < 79; i++){
+    for(int i = 2; i < 80; i++){
       Text.go(1,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
       Text.go(5,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
       Text.go(24,i);
+      System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
+      Text.go(28,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
       Text.go(30,i);
       System.out.println(Text.colorize("-", Text.BLUE+Text.BACKGROUND));
@@ -72,6 +74,8 @@ public class StuyabloGame{
     ArrayList<Adventurer>enemies = new ArrayList<>();
     Adventurer enemy = new Wizard("Mr. K");
     enemies.add(enemy);
+    enemy.setHP(150);
+    enemy.setmaxHP(150);
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 3 Adventurers to it.
@@ -100,6 +104,7 @@ public class StuyabloGame{
 
       //display event based on last turn's input
       if(partyTurn){
+        Text.clear();
         //Process user input:
         if(input.equals("attack") || input.equals("")){
           Text.clear();
@@ -128,6 +133,7 @@ public class StuyabloGame{
         if(turn > 0){
           drawText("Enter command for "+enemies.get(0)+
                    ": attack/special/quit",HEIGHT/2);
+                   Text.clear();
           //Enemy action choices go here!
           Text.go(HEIGHT/2-5,3);
           int index = (int)(Math.random()*party.size());
@@ -145,7 +151,6 @@ public class StuyabloGame{
         turn++;
 
       }
-
       //display current state of all Adventurers
       drawParty(party,2);
       drawParty(enemies,HEIGHT-5);
